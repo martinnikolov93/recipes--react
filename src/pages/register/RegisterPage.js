@@ -1,10 +1,11 @@
 import React from 'react';
+import PageLayout from '../../components/page-layout/PageLayout';
 
 const RegisterPage = () => {
     return (
-        <div>
-
-        </div>
+        <PageLayout>
+            <h1>Register Page</h1>
+        </PageLayout>
     )
 }
 
