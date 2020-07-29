@@ -1,13 +1,12 @@
 import React from 'react';
 import PageLayout from '../../components/page-layout/PageLayout';
-import Home from '../../components/home/Home';
 
-const HomePage = () => {
-    return (
+const FavouritesPage = () => {
+    return(
         <PageLayout>
-            <Home></Home>
+            <h1>Favourites Page</h1>
         </PageLayout>
     )
 }
 
-export default HomePage
+export default FavouritesPage

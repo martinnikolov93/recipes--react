@@ -10,6 +10,7 @@ const Header = () => {
             <span className={styles.logo}>Recipes</span>
             <div className={styles['nav-buttons-wrapper']}>
                 <Link className={styles['nav-button']} to='/'>Home</Link>
+                <Link className={styles['nav-button']} to='/favourites'>Favourites</Link>
                 <Link className={styles['nav-button']} to='/profile'>Profile</Link>
                 <Link className={styles['nav-button']} to='/login'>Login</Link>
                 <Link className={styles['nav-button']} to='/register'>Register</Link>

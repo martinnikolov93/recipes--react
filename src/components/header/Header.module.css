@@ -1,13 +1,13 @@
 .navigation {
-  height: 70px;
+  height: 100px;
   width: 100%;
   background: white;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.05);
 }
 
 .nav-buttons-wrapper {
   float: right;
-  margin: 25px;
+  margin: 40px;
 }
 
 .nav-button {
@@ -16,6 +16,7 @@
   text-decoration: none;
   font-weight: bold;
   color: #6b6b6b;
+  font-size: larger;
 }
 
 .nav-button:hover {
@@ -24,5 +25,5 @@
 
 .logo {
   float: left;
-  margin: 25px;
+  margin: 40px;
 }
