@@ -17,9 +17,16 @@
   font-weight: bold;
   color: #6b6b6b;
   font-size: larger;
+  transition: 0.3s;
 }
 
 .nav-button:hover {
+  color: #ea9801;
+  text-decoration: underline;
+  /*text-underline-position: under;*/
+}
+
+.nav-button-active {
   color: #ea9801;
 }
 
