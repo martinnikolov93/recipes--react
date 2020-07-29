@@ -5,7 +5,8 @@ import Home from '../../components/home/Home';
 const HomePage = () => {
     return (
         <PageLayout>
-            <Home></Home>
+            <h2>Home</h2>
+            <Home />
         </PageLayout>
     )
 }

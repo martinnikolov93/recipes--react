@@ -48,7 +48,6 @@ const Home = () => {
 
     return (
         <>
-            <h1>Home Component</h1>
             <RecipesWrapper recipes={someArr} limit="4"/>
         </>
     )

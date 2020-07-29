@@ -5,7 +5,7 @@ class ProfilePage extends React.Component {
     render() {
         return (
             <PageLayout>
-                <h1>Profile Page</h1>
+                <h2>Profile</h2>
             </PageLayout>
         )
     }
