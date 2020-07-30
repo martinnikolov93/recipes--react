@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 import { isEmptyObject } from '../../utils/helpers'
+import UserContext from '../../Context';
 
 class Register extends React.Component {
     state = {
@@ -78,13 +79,27 @@ class Register extends React.Component {
         this.setState({ emailErrors, passwordErrors, rePasswordErrors })
 
         if (emailErrors || passwordErrors || rePasswordErrors) {
-            console.log('form wont be submited')
             return
         }
 
-        // some ajax request
-
-        console.log('form was submited')
+        fetch('http://localhost:9999/api/user/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        })
+        .then((response) => {
+            const user = response.json()
+            const authToken = response.headers.get('auth-token')
+            document.cookie = `auth-token=${authToken}`
+            this.context.logIn(user)
+            return user
+        })
+        .then((json) => console.log(json))
     }
 
     changeHandlerEmail = (event) => {
@@ -135,5 +150,7 @@ class Register extends React.Component {
         )
     }
 }
+
+Register.contextType = UserContext;
 
 export default Register

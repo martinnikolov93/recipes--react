@@ -1,11 +1,16 @@
 import React from 'react';
-import './App.module.css';
+
 import Router from './Router';
+import AuthController from './AuthController'
+
+import './App.module.css';
 
 function App() {
   return (
     <div>
-      <Router />
+      <AuthController>
+        <Router />
+      </AuthController>
     </div>
   );
 }

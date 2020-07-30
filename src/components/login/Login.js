@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom'
+import UserContext from '../../Context';
 
 import { isEmptyObject } from '../../utils/helpers'
 
@@ -55,7 +56,24 @@ class Login extends React.Component {
             return
         }
 
-        // some ajax request
+        fetch('http://localhost:9999/api/user/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        })
+        .then((response) => {
+            const user = response.json()
+            const authToken = response.headers.get('auth-token')
+            document.cookie = `auth-token=${authToken}`
+            this.context.logIn(user)
+            return user
+        })
+        .then((json) => console.log(json))
 
         console.log('form was submited')
     }
@@ -96,5 +114,7 @@ class Login extends React.Component {
         )
     }
 }
+
+Login.contextType = UserContext;
 
 export default Login
