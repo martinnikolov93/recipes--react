@@ -1,6 +1,9 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom';
+
 import { isEmptyObject, getCookie } from '../../utils/helpers'
+
 import styles from './AddRecipe.module.css'
 
 class AddRecipe extends React.Component {
@@ -86,7 +89,8 @@ class AddRecipe extends React.Component {
                 const recipe = response.json()
                 return recipe
             })
-            .then((json) => console.log(json))
+            .then((json) => this.props.history.push(`/recipe/view/${json._id}`))
+            .catch((err) => console.log(err))
     }
 
     changeHandlerTitle = (event) => {
@@ -126,8 +130,8 @@ class AddRecipe extends React.Component {
                     </div>
                     <div>
                         <label htmlFor='description'></label>
-                        <textarea rows="20" className={styles['recipe-input'] + ' ' + (descriptionErrors ? "input-error" : "")} id='description' type="text" placeholder="Description" onChange={this.changeHandlerDescription}>
-                            {description}</textarea>
+                        <textarea rows="20" className={styles['recipe-input'] + ' ' + (descriptionErrors ? "input-error" : "")} id='description' type="text" placeholder="Description" defaultValue={description} onChange={this.changeHandlerDescription}>
+                        </textarea>
                         <div className="input-error-text">{descriptionErrors ? Object.values(descriptionErrors)[0] : null}</div>
                     </div>
                     <button>Add Recipe</button>
@@ -137,4 +141,4 @@ class AddRecipe extends React.Component {
     }
 }
 
-export default AddRecipe
+export default withRouter(AddRecipe)

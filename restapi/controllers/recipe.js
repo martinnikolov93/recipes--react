@@ -8,6 +8,13 @@ module.exports = {
             .catch(next);
     },
 
+    getOne: (req, res, next) => {
+        const id = req.params.id
+        models.Recipe.findById(id).populate('author')
+            .then((recipe) => res.send(recipe))
+            .catch(next);
+    },
+
     post: (req, res, next) => {
         const { title, url, description } = req.body;
         const { _id } = req.user;
@@ -15,7 +22,7 @@ module.exports = {
         models.Recipe.create({ title, url, description, author: _id })
             .then((createdRecipe) => {
                 return Promise.all([
-                    models.User.updateOne({ _id }, { $push: { posts: createdRecipe } }),
+                    models.User.updateOne({ _id }, { $push: { recipes: createdRecipe } }),
                     models.Recipe.findOne({ _id: createdRecipe._id })
                 ]);
             })

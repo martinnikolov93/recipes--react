@@ -13,7 +13,7 @@ const RecipesWrapper = (props) => {
     return (
         <div className={styles['recipes-wrapper']}>
             {recipes.map((recipe) => {
-                return <RecipeBox key={recipe.title} url={recipe.url} title={recipe.title} description={recipe.description} />
+                return <RecipeBox key={recipe.title} id={recipe._id} url={recipe.url} title={recipe.title} description={recipe.description} />
             })}
         </div>
     )
