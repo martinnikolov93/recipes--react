@@ -15,7 +15,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-express": "(cd restapi && npm run start)",
+    "start-react": "react-scripts start",
+    "dev": "npm-run-all --parallel start-express start-react"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

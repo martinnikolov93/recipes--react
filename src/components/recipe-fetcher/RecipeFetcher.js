@@ -2,8 +2,8 @@ import React from 'react';
 import RecipesWrapper from '../recipes-wrapper/RecipesWrapper';
 
 class RecipeFetcher extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             recipes: []
@@ -11,7 +11,7 @@ class RecipeFetcher extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:9999/api/recipe')
+        fetch(this.props.url)
             .then((response) => response.json())
             .then((json) => this.setState({ recipes: json }))
     }

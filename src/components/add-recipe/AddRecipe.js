@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { isEmptyObject, getCookie } from '../../utils/helpers'
+import styles from './AddRecipe.module.css'
 
 class AddRecipe extends React.Component {
     state = {
@@ -94,7 +95,7 @@ class AddRecipe extends React.Component {
         this.setState({ title: event.target.value, titleErrors: titleErrors })
     }
 
-    changeHandlerUrl= (event) => {
+    changeHandlerUrl = (event) => {
         const url = event.target.value
         const urlErrors = this.urlValidator(url)
         this.setState({ url: url, urlErrors: urlErrors })
@@ -115,17 +116,18 @@ class AddRecipe extends React.Component {
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <label htmlFor='title'></label>
-                        <input className={titleErrors ? "input-error" : ""} id='title' type="text" placeholder="Title" value={title} onChange={this.changeHandlerTitle} />
+                        <input className={styles['recipe-input'] + ' ' + (titleErrors ? "input-error" : "")} id='title' type="text" placeholder="Title" value={title} onChange={this.changeHandlerTitle} />
                         <div className="input-error-text">{titleErrors ? Object.values(titleErrors)[0] : null}</div>
                     </div>
                     <div>
                         <label htmlFor='url'></label>
-                        <input className={urlErrors ? "input-error" : ""} id='url' type="text" placeholder="URL" value={url} onChange={this.changeHandlerUrl} />
+                        <input className={styles['recipe-input'] + ' ' + (urlErrors ? "input-error" : "")} id='url' type="text" placeholder="URL" value={url} onChange={this.changeHandlerUrl} />
                         <div className="input-error-text">{urlErrors ? Object.values(urlErrors)[0] : null}</div>
                     </div>
                     <div>
                         <label htmlFor='description'></label>
-                        <input className={descriptionErrors ? "input-error" : ""} id='description' type="text" placeholder="Description" value={description} onChange={this.changeHandlerDescription} />
+                        <textarea rows="20" className={styles['recipe-input'] + ' ' + (descriptionErrors ? "input-error" : "")} id='description' type="text" placeholder="Description" onChange={this.changeHandlerDescription}>
+                            {description}</textarea>
                         <div className="input-error-text">{descriptionErrors ? Object.values(descriptionErrors)[0] : null}</div>
                     </div>
                     <button>Add Recipe</button>
