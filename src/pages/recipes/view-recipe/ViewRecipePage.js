@@ -18,7 +18,6 @@ class ViewRecipePage extends React.Component {
             .then((json) => {
                 const recipe = json
                 this.setState({recipe})
-                console.log(recipe)
             })
     }
 
