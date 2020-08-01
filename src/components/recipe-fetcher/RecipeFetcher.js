@@ -6,7 +6,7 @@ class RecipeFetcher extends React.Component {
         super(props)
 
         this.state = {
-            recipes: []
+            recipes: null
         }
     }
 
@@ -17,8 +17,12 @@ class RecipeFetcher extends React.Component {
     }
 
     render() {
-        if (this.state.recipes.length === 0) {
+        if (this.state.recipes == null) {
             return 'Loading..'
+        }
+
+        if (this.state.recipes.length === 0) {
+            return 'No recipes'
         }
 
         return (

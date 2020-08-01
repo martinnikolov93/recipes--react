@@ -4,7 +4,7 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        models.User.findById(req.query.id).populate('recipes')
+        models.User.findById(req.query.id).populate('recipes').populate('favourites')
             .then((user) => res.send(user))
             .catch((err) => res.status(500).send("Error"))
     },
@@ -93,7 +93,25 @@ module.exports = {
                     res.clearCookie(config.authCookieName).send('Logout successfully!');
                 })
                 .catch(next);
-        }
+        },
+
+        addToFav: (req, res, next) => {
+            const id = req.params.id;
+            const { recipeId } = req.body;
+
+            models.User.update({ _id: id }, { $push: { favourites: recipeId } })
+                .then((updatedUser) => res.send(updatedUser))
+                .catch(next)
+        },
+    },
+
+    removeFromFav: (req, res, next) => {
+        const id = req.params.id;
+        const { recipeId } = req.body;
+
+        models.User.update({ _id: id }, { $pull: { favourites: recipeId } })
+            .then((updatedUser) => res.send(updatedUser))
+            .catch(next)
     },
 
     put: (req, res, next) => {

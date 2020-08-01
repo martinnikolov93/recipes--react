@@ -9,7 +9,10 @@ class AuthController extends React.Component {
 
         this.state = {
             loggedIn: null,
-            user: null
+            user: {
+                favourites: [],
+                recipes: []
+            }
         }
     }
 
@@ -24,7 +27,10 @@ class AuthController extends React.Component {
         document.cookie = "auth-token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
         this.setState({
             loggedIn: false,
-            user: null
+            user: {
+                favourites: [],
+                recipes: []
+            }
         })
     }
 
