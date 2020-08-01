@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../../../components/page-layout/PageLayout';
 import ViewRecipe from '../../../components/view-recipe/ViewRecipe';
+import dbRoutes from '../../../utils/db-routes';
 
 class ViewRecipePage extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class ViewRecipePage extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:9999/api/recipe/${this.props.match.params.id}`)
+        fetch(dbRoutes.recipeByID(this.props.match.params.id))
             .then((response) => response.json())
             .then((json) => {
                 const recipe = json

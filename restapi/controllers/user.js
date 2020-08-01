@@ -4,8 +4,14 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        models.User.findById(req.query.id)
+        models.User.findById(req.query.id).populate('recipes')
             .then((user) => res.send(user))
+            .catch((err) => res.status(500).send("Error"))
+    },
+
+    getUserRecipes: (req, res, next) => {
+        models.User.findById(req.query.id).populate('recipes')
+            .then((user) => res.send(user.recipes))
             .catch((err) => res.status(500).send("Error"))
     },
 
@@ -42,7 +48,7 @@ module.exports = {
                         });
                 })
                 .catch(err => {
-                   // if (!redirectAuthenticated) { next(); return; }
+                    // if (!redirectAuthenticated) { next(); return; }
 
                     if (['token expired', 'blacklisted token', 'jwt must be provided'].includes(err.message)) {
                         res.status(401).send('UNAUTHORIZED!');
