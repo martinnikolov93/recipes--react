@@ -3,8 +3,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { isEmptyObject, getCookie } from '../../utils/helpers'
+import dbRoutes from '../../utils/db-routes';
 
 import styles from './AddRecipe.module.css'
+
 
 class AddRecipe extends React.Component {
     state = {
@@ -73,7 +75,7 @@ class AddRecipe extends React.Component {
             return
         }
 
-        fetch('http://localhost:9999/api/recipe/', {
+        fetch(dbRoutes.postRecipe, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

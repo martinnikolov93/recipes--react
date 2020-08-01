@@ -9,7 +9,7 @@ const Profile = () => {
     return (
         <>
             <h3>Your recipes:</h3>
-            <RecipeFetcher url={dbRoutes.userRecipes(context.user._id)}/>
+            <RecipeFetcher url={dbRoutes.getUserRecipes(context.user._id)}/>
         </>
     )
 }

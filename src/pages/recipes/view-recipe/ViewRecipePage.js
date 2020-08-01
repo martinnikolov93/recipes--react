@@ -13,7 +13,7 @@ class ViewRecipePage extends React.Component {
     }
 
     componentDidMount() {
-        fetch(dbRoutes.recipeByID(this.props.match.params.id))
+        fetch(dbRoutes.getRecipeByID(this.props.match.params.id))
             .then((response) => response.json())
             .then((json) => {
                 const recipe = json
