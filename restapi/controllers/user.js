@@ -15,6 +15,12 @@ module.exports = {
             .catch((err) => res.status(500).send("Error"))
     },
 
+    getUserFavourites: (req, res, next) => {
+        models.User.findById(req.query.id).populate('favourites')
+            .then((user) => res.send(user.favourites))
+            .catch((err) => res.status(500).send("Error"))
+    },
+
     post: {
         register: (req, res, next) => {
             const { email, password } = req.body;

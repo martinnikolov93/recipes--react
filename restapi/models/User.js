@@ -19,7 +19,9 @@ const userSchema = new Schema({
         require: true
     },
 
-    recipes: [{ type: ObjectId, ref: "Recipe" }]
+    recipes: [{ type: ObjectId, ref: "Recipe" }],
+
+    favourites: [{ type: ObjectId, ref: "Recipe" }]
 
 });
 

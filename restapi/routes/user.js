@@ -5,6 +5,8 @@ router.get('/', controllers.user.get);
 
 router.get('/recipes', controllers.user.getUserRecipes);
 
+router.get('/favourites', controllers.user.getUserFavourites);
+
 router.post('/register', controllers.user.post.register);
 
 router.post('/login', controllers.user.post.login);
