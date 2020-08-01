@@ -67,13 +67,14 @@ class Login extends React.Component {
             })
         })
         .then((response) => {
-            const user = response.json()
             const authToken = response.headers.get('auth-token')
             document.cookie = `auth-token=${authToken}`
+            return response.json()
+        })
+        .then((user) => {
             this.context.logIn(user)
             return user
         })
-        .then((json) => console.log(json))
 
         console.log('form was submited')
     }
