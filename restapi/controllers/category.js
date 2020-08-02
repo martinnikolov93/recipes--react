@@ -2,14 +2,14 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res, next) => {
-        models.Recipe.find().populate('author')
+        models.Category.find().populate('recipes')
             .then((recipes) => res.send(recipes))
             .catch(next);
     },
 
     getOne: (req, res, next) => {
-        const id = req.params.id
-        models.Recipe.findById(id).populate('author')
+        const title = req.params.title
+        models.Category.findOne({title: title}).populate('recipes')
             .then((recipe) => res.send(recipe))
             .catch(next);
     },
@@ -18,11 +18,11 @@ module.exports = {
         const { title, url, description } = req.body;
         const { _id } = req.user;
 
-        models.Recipe.create({ title, url, description, author: _id })
+        models.Category.create({ title, url, description })
             .then((createdRecipe) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { recipes: createdRecipe } }),
-                    models.Recipe.findOne({ _id: createdRecipe._id })
+                    models.Category.findOne({ _id: createdRecipe._id })
                 ]);
             })
             .then(([modifiedObj, recipeObj]) => {
@@ -34,14 +34,14 @@ module.exports = {
     put: (req, res, next) => {
         const id = req.params.id;
         const { title, url, description } = req.body;
-        models.Recipe.updateOne({ _id: id }, { title, url, description })
+        models.Category.updateOne({ _id: id }, { title, url, description })
             .then((updatedRecipe) => res.send(updatedRecipe))
             .catch(next)
     },
 
     delete: (req, res, next) => {
         const id = req.params.id;
-        models.Recipe.deleteOne({ _id: id })
+        models.Category.deleteOne({ _id: id })
             .then((removedRecipe) => res.send(removedRecipe))
             .catch(next)
     }

@@ -18,6 +18,8 @@ import LogoutPage from './pages/logout/LogoutPage';
 import AddRecipePage from './pages/recipes/add-recipe/AddRecipePage';
 import ViewRecipePage from './pages/recipes/view-recipe/ViewRecipePage';
 import EditRecipePage from './pages/recipes/edit-recipe/EditRecipePage';
+import CategoryPage from './pages/category/CategoryPage';
+import CategoriesPage from './pages/categories/CategoriesPage';
 
 const Router = () => {
     const context = useContext(UserContext)
@@ -28,6 +30,8 @@ const Router = () => {
                 {/* --Public routes-- */}
                 <Route path='/' exact component={HomePage}></Route>
                 <Route path='/recipe/view/:id' component={ViewRecipePage}></Route>
+                <Route path='/categories/:title' component={CategoryPage}></Route>
+                <Route path='/categories' component={CategoriesPage}></Route>
                 {/* --Auth routes-- */}
                 <Route path='/recipe/add'>{context.loggedIn ? <AddRecipePage /> : <Redirect to="/" />}</Route>
                 <Route path='/recipe/edit/:id'>{context.loggedIn ? <EditRecipePage /> : <Redirect to="/" />}</Route>

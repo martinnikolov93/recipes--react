@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const Model = mongoose.model;
 const { String, ObjectId } = Schema.Types;
 
-const recipeSchema = new Schema({
+const categorySchema = new Schema({
 
     title: {
         type: String,
@@ -20,16 +20,8 @@ const recipeSchema = new Schema({
         required: true,
     },
 
-    category: {
-        type: ObjectId,
-        ref: "Category"
-    },
-
-    author: {
-        type: ObjectId,
-        ref: "User"
-    }
+    recipes: [{type: ObjectId, ref: "Recipe"}]
 
 });
 
-module.exports = new Model('Recipe', recipeSchema);
+module.exports = new Model('Category', categorySchema);

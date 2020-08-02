@@ -78,6 +78,7 @@ module.exports = {
                     }
 
                     const token = utils.jwt.createToken({ id: user._id });
+                    console.log(token)
                     res.header("auth-token", token).send(user);
                 })
                 .catch(next);

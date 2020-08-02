@@ -1,0 +1,29 @@
+.categories-box {
+  width: 210px;
+  background: white;
+  position: absolute;
+  z-index: 2;
+  margin-left: -109px;
+  margin-top: 60px;
+  border: 1px solid #c3c3c36b;
+  padding: 10px;
+}
+
+.category-link {
+  font-size: larger;
+  margin: 5px;
+  color: #6b6b6b;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+  display: block;
+}
+
+.category-link:hover {
+  color: #eca301;
+  margin-left: 15px;
+}
+
+.nav-button-active {
+  color: #ea9801;
+}

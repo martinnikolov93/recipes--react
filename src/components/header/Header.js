@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import styles from './Header.module.css'
 import UserContext from '../../Context'
+import CategoriesDropdown from '../categories-dropdown/CategoriesDropdown'
 
 const Header = () => {
     const context = useContext(UserContext)
@@ -14,6 +15,7 @@ const Header = () => {
             <nav>
                 <div className={styles['nav-buttons-wrapper']}>
                     <NavLink className={styles['nav-button']} to='/' exact activeClassName={styles['nav-button-active']}>Home</NavLink>
+                    <CategoriesDropdown className={styles['nav-button']} />
                     {context.loggedIn
                         ?
                         <>

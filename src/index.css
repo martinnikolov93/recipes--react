@@ -60,6 +60,13 @@ h2 {
   text-transform: uppercase;
 }
 
+hr {
+  width: 87%;
+  background-color: #6b6b6b36;
+  border: none;
+  height: 1px;
+}
+
 .input-error {
   border: red solid 1px !important;
 }
