@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import UserContext from '../../Context';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { IconContext } from 'react-icons'
 import styles from './FavouriteIcon.module.css'
 import { useHistory } from 'react-router-dom';
 
@@ -35,7 +36,7 @@ const FavouriteIcon = (props) => {
 
     const addToFav = () => {
 
-        if(context.loggedIn === false) {
+        if (context.loggedIn === false) {
             history.push('/login')
         }
 
@@ -57,14 +58,15 @@ const FavouriteIcon = (props) => {
 
     return (
         <>
-            {
-                isFav
-                    ?
-                    <div><FaHeart className={styles['favourite-icon']} onClick={removeFromFav} /></div>
-                    :
-                    <div><FaRegHeart className={styles['favourite-icon']} onClick={addToFav} /></div>
-            }
-
+            <IconContext.Provider value={{ color: "#ff3939", size: '2em' }}>
+                {
+                    isFav
+                        ?
+                        <div><FaHeart className={styles['favourite-icon']} onClick={removeFromFav} /></div>
+                        :
+                        <div><FaRegHeart className={styles['favourite-icon']} onClick={addToFav} /></div>
+                }
+            </IconContext.Provider>
         </>
     )
 }

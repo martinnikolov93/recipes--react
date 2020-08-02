@@ -11,13 +11,13 @@ module.exports = {
 
     getUserRecipes: (req, res, next) => {
         models.User.findById(req.query.id).populate('recipes')
-            .then((user) => res.send(user.recipes))
+            .then((user) => res.send(user.recipes.reverse()))
             .catch((err) => res.status(500).send("Error"))
     },
 
     getUserFavourites: (req, res, next) => {
         models.User.findById(req.query.id).populate('favourites')
-            .then((user) => res.send(user.favourites))
+            .then((user) => res.send(user.favourites.reverse()))
             .catch((err) => res.status(500).send("Error"))
     },
 
