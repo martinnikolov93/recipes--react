@@ -13,7 +13,7 @@ const ViewRecipe = (props) => {
     if (isEmptyObject(props.recipe)) {
         return 'Loading..'
     }
-    console.log(context)
+
     return (
         <>
             <article>
