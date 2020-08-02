@@ -10,10 +10,12 @@ const RecipeBox = (props) => {
 
     return (
         <article className={styles['recipe-card']}>
+            <div className={styles['favourite-icon']}>
+                <FavouriteIcon recipeId={props.id} />
+            </div>
             <Link to={'/recipe/view/' + props.id}>
                 <img className={styles.image} src={props.url} alt={props.title} />
             </Link>
-            <FavouriteIcon recipeId={props.id} />
             <h3 className={styles.title}>{props.title}</h3>
             <div className={styles.description}>{recipeDescription + "..."}</div>
         </article>
