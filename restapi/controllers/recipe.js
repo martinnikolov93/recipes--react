@@ -26,16 +26,16 @@ module.exports = {
                     models.Recipe.findOne({ _id: createdRecipe._id })
                 ]);
             })
-            .then(([modifiedObj, origamiObj]) => {
-                res.send(origamiObj);
+            .then(([modifiedObj, recipeObj]) => {
+                res.send(recipeObj);
             })
             .catch(next);
     },
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { description } = req.body;
-        models.Recipe.updateOne({ _id: id }, { description })
+        const { title, url, description } = req.body;
+        models.Recipe.updateOne({ _id: id }, { title, url, description })
             .then((updatedRecipe) => res.send(updatedRecipe))
             .catch(next)
     },

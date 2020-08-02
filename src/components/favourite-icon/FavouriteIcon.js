@@ -37,7 +37,7 @@ const FavouriteIcon = (props) => {
     const addToFav = () => {
 
         if (context.loggedIn === false) {
-            history.push('/login')
+            return history.push('/login')
         }
 
         fetch('http://localhost:9999/api/user/favourites/' + context.user._id, {

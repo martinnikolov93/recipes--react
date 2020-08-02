@@ -1,19 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import UserContext from '../../Context';
 
 const Logout = () => {
     const context = useContext(UserContext)
-    context.logOut()
 
-    const history = useHistory()
-    history.push('/')
-    
+    useEffect(() => {
+        context.logOut()
+    }, [context])
+
     return (
-        <>
-        </>
+        <Redirect to="/" />
     )
 }
 

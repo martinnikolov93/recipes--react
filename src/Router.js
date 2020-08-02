@@ -17,10 +17,11 @@ import FavouritesPage from './pages/favourites/FavouritesPage';
 import LogoutPage from './pages/logout/LogoutPage';
 import AddRecipePage from './pages/recipes/add-recipe/AddRecipePage';
 import ViewRecipePage from './pages/recipes/view-recipe/ViewRecipePage';
+import EditRecipePage from './pages/recipes/edit-recipe/EditRecipePage';
 
 const Router = () => {
     const context = useContext(UserContext)
-    console.log(context)
+
     return (
         <BrowserRouter>
             <Switch>
@@ -29,6 +30,7 @@ const Router = () => {
                 <Route path='/recipe/view/:id' component={ViewRecipePage}></Route>
                 {/* --Auth routes-- */}
                 <Route path='/recipe/add'>{context.loggedIn ? <AddRecipePage /> : <Redirect to="/" />}</Route>
+                <Route path='/recipe/edit/:id'>{context.loggedIn ? <EditRecipePage /> : <Redirect to="/" />}</Route>
                 <Route path='/favourites'>{context.loggedIn ? <FavouritesPage /> : <Redirect to="/" />}</Route>
                 <Route path='/profile'>{context.loggedIn ? <ProfilePage /> : <Redirect to="/" />}</Route>
                 <Route path='/logout'>{context.loggedIn ? <LogoutPage /> : <Redirect to="/" />}</Route>
