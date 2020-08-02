@@ -9,15 +9,18 @@ class ViewRecipePage extends React.Component {
 
         this.state = {
             recipe: {}
-        } 
+        }
     }
 
     componentDidMount() {
+        document.title = ''
+
         fetch(dbRoutes.getRecipeByID(this.props.match.params.id))
             .then((response) => response.json())
             .then((json) => {
                 const recipe = json
-                this.setState({recipe})
+                this.setState({ recipe })
+                document.title = recipe.title + ' | Recipes'
             })
     }
 
