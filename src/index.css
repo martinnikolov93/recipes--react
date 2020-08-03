@@ -23,7 +23,8 @@ footer {
 }
 
 input,
-textarea {
+textarea,
+select {
   padding: 16px;
   border: solid 1px #dbdbdb;
   width: 250px;

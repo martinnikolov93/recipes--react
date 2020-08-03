@@ -15,17 +15,18 @@ module.exports = {
     },
 
     post: (req, res, next) => {
-        const { title, url, description } = req.body;
+        const { title, url, categoryId, description } = req.body;
         const { _id } = req.user;
-
-        models.Recipe.create({ title, url, description, author: _id })
+        console.log(categoryId)
+        models.Recipe.create({ title, url, categoryId, description, author: _id })
             .then((createdRecipe) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { recipes: createdRecipe } }),
-                    models.Recipe.findOne({ _id: createdRecipe._id })
+                    models.Recipe.findOne({ _id: createdRecipe._id }),
+                    models.Category.updateOne({ _id: categoryId }, { $push: { recipes: createdRecipe } })
                 ]);
             })
-            .then(([modifiedObj, recipeObj]) => {
+            .then(([modifiedObj, recipeObj, modifiedCatObj]) => {
                 res.send(recipeObj);
             })
             .catch(next);
