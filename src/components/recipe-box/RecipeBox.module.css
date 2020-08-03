@@ -24,12 +24,7 @@
 }
 
 .favourite-icon {
+  margin-left: 223px;
+  margin-top: 11px;
   position: absolute;
-  margin-left: 229px;
-  margin-top: 7px;
-  background: #000000a1;
-  padding: 10px 10px 6px 10px;
-  border: 0px solid grey;
-  border-radius: 120px;
-  width: 38px;
 }

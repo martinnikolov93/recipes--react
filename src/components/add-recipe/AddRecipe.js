@@ -127,7 +127,7 @@ class AddRecipe extends React.Component {
                     </div>
                     <div>
                         <label htmlFor='url'></label>
-                        <input className={styles['recipe-input'] + ' ' + (urlErrors ? "input-error" : "")} id='url' type="text" placeholder="URL" value={url} onChange={this.changeHandlerUrl} />
+                        <input className={styles['recipe-input'] + ' ' + (urlErrors ? "input-error" : "")} id='url' type="text" placeholder="Image URL" value={url} onChange={this.changeHandlerUrl} />
                         <div className="input-error-text">{urlErrors ? Object.values(urlErrors)[0] : null}</div>
                     </div>
                     <div>

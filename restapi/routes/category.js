@@ -1,6 +1,6 @@
 const controllers = require('../controllers');
 const router = require('express').Router();
-const { auth } = require('../utils');
+//const { auth } = require('../utils');
 
 router.get('/', controllers.category.get);
 
