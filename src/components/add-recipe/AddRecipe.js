@@ -90,7 +90,7 @@ class AddRecipe extends React.Component {
         event.preventDefault()
 
         let { title, url, categoryId, description } = this.state
-        console.log(categoryId)
+
         const titleErrors = this.titleValidator(title)
         const urlErrors = this.urlValidator(url)
         const categoryErrors = this.categoryValidator(categoryId)

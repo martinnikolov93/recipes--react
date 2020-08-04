@@ -2,16 +2,27 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res, next) => {
-        models.Category.find().populate('recipes')
+        models.Category.find()
             .then((recipes) => res.send(recipes))
             .catch(next);
     },
 
     getOne: (req, res, next) => {
         const title = req.params.title
-        models.Category.findOne({title: title}).populate('recipes')
+        models.Category.findOne({title: title})
             .then((recipe) => res.send(recipe))
             .catch(next);
+    },
+
+    getRecipesByCategory: (req, res, next) => {
+        const title = req.params.title
+        models.Category.findOne({title: title})
+        .then((category) => {
+            models.Recipe.find({category: category._id})
+            .then((recipes) => res.send(recipes))
+            .catch(next);
+        })
+        .catch(next)
     },
 
     post: (req, res, next) => {
@@ -25,8 +36,8 @@ module.exports = {
                     models.Category.findOne({ _id: createdRecipe._id })
                 ]);
             })
-            .then(([modifiedObj, recipeObj]) => {
-                res.send(recipeObj);
+            .then(([modifiedObj, categoryObj]) => {
+                res.send(categoryObj);
             })
             .catch(next);
     },

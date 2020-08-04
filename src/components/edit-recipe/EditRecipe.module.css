@@ -1,3 +1,7 @@
 .recipe-input {
-  width: 600px !important;
+  width: 600px;
+}
+
+.recipe-select {
+  width: 636px;
 }

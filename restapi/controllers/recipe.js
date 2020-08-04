@@ -17,9 +17,10 @@ module.exports = {
     post: (req, res, next) => {
         const { title, url, categoryId, description } = req.body;
         const { _id } = req.user;
-        console.log(categoryId)
-        models.Recipe.create({ title, url, categoryId, description, author: _id })
+
+        models.Recipe.create({ title, url, category: categoryId, description, author: _id })
             .then((createdRecipe) => {
+                console.log(createdRecipe)
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { recipes: createdRecipe } }),
                     models.Recipe.findOne({ _id: createdRecipe._id }),
@@ -34,8 +35,8 @@ module.exports = {
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { title, url, description } = req.body;
-        models.Recipe.updateOne({ _id: id }, { title, url, description })
+        const { title, url, categoryId, description } = req.body;
+        models.Recipe.updateOne({ _id: id }, { title, url, category: categoryId, description })
             .then((updatedRecipe) => res.send(updatedRecipe))
             .catch(next)
     },

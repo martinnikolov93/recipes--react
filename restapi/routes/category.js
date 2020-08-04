@@ -6,6 +6,8 @@ router.get('/', controllers.category.get);
 
 router.get('/:title', controllers.category.getOne);
 
+router.get('/recipes/:title', controllers.category.getRecipesByCategory);
+
 // router.post('/', auth(), controllers.category.post);
 
 // router.put('/:id', auth(), controllers.category.put);

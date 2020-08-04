@@ -11,8 +11,11 @@ class EditRecipe extends React.Component {
         titleErrors: false,
         url: '',
         urlErrors: false,
+        categoryId: '',
+        categoryErrors: false,
         description: '',
-        descriptionErrors: false
+        descriptionErrors: false,
+        categories: [],
     }
 
     componentDidMount() {
@@ -27,9 +30,17 @@ class EditRecipe extends React.Component {
                 this.setState({
                     title: recipe.title,
                     url: recipe.url,
+                    categoryId: recipe.category,
                     description: recipe.description
                 })
                 document.title = 'Editing - ' + recipe.title + ' | Recipes'
+            })
+            .catch((err) => console.log(err))
+
+            fetch('http://localhost:9999/api/category')
+            .then((response) => response.json())
+            .then((categories) => {
+                this.setState({ categories })
             })
             .catch((err) => console.log(err))
     }
@@ -62,6 +73,20 @@ class EditRecipe extends React.Component {
         return urlErrors
     }
 
+    categoryValidator = (category) => {
+        let categoryErrors = {}
+
+        if (!category) {
+            categoryErrors.required = 'Category is required.';
+        }
+
+        if (isEmptyObject(categoryErrors)) {
+            return false
+        }
+
+        return categoryErrors
+    }
+
     descriptionValidator = (description) => {
         let descriptionErrors = {}
 
@@ -79,15 +104,16 @@ class EditRecipe extends React.Component {
     submitHandler = (event) => {
         event.preventDefault()
 
-        let { title, url, description } = this.state
+        let { title, url, categoryId, description } = this.state
 
         const titleErrors = this.titleValidator(title)
         const urlErrors = this.urlValidator(url)
+        const categoryErrors = this.categoryValidator(categoryId)
         const descriptionErrors = this.descriptionValidator(description)
 
         this.setState({ titleErrors, urlErrors, descriptionErrors })
 
-        if (titleErrors || urlErrors || descriptionErrors) {
+        if (titleErrors || urlErrors || categoryErrors  || descriptionErrors) {
             return
         }
 
@@ -99,6 +125,7 @@ class EditRecipe extends React.Component {
             body: JSON.stringify({
                 title,
                 url,
+                categoryId,
                 description,
                 token: getCookie('auth-token')
             })
@@ -123,6 +150,11 @@ class EditRecipe extends React.Component {
         this.setState({ url: url, urlErrors: urlErrors })
     }
 
+    changeHandlerCategories = (event) => {
+        const categoryId = event.target.value
+        const categoryErrors = this.categoryValidator(categoryId)
+        this.setState({categoryId, categoryErrors})
+    }
 
     changeHandlerDescription = (event) => {
         const description = event.target.value
@@ -131,7 +163,7 @@ class EditRecipe extends React.Component {
     }
 
     render() {
-        let { title, titleErrors, url, urlErrors, description, descriptionErrors } = this.state
+        let { title, titleErrors, url, urlErrors, categoryId, categoryErrors, description, descriptionErrors } = this.state
 
         return (
             <div>
@@ -145,6 +177,16 @@ class EditRecipe extends React.Component {
                         <label htmlFor='url'></label>
                         <input className={styles['recipe-input'] + ' ' + (urlErrors ? "input-error" : "")} id='url' type="text" placeholder="URL" value={url} onChange={this.changeHandlerUrl} />
                         <div className="input-error-text">{urlErrors ? Object.values(urlErrors)[0] : null}</div>
+                    </div>
+                    <div>
+                        <label htmlFor='categories'></label>
+                        <select id='categories' value={categoryId} className={styles['recipe-input'] + ' ' + styles['recipe-select'] + ' ' + (categoryErrors ? "input-error" : "")} onChange={this.changeHandlerCategories}>
+                            <option value=''>Select Category</option>
+                            {this.state.categories.map((category, i) => {
+                                return <option key={i} value={category._id}>{category.title}</option>
+                            })}
+                        </select>
+                        <div className="input-error-text">{categoryErrors ? Object.values(categoryErrors)[0] : null}</div>
                     </div>
                     <div>
                         <label htmlFor='description'></label>

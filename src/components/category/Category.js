@@ -8,10 +8,10 @@ const Category = () => {
     const [recipes, setRecipes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:9999/api/category/${title}`)
+        fetch(`http://localhost:9999/api/category/recipes/${title}`)
             .then((response) => response.json())
-            .then((category) => {
-                setRecipes(category.recipes)
+            .then((recipes) => {
+                setRecipes(recipes)
             })
     }, [title])
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Model = mongoose.model;
-const { String, ObjectId } = Schema.Types;
+const { String } = Schema.Types;
 
 const categorySchema = new Schema({
 
@@ -20,7 +20,7 @@ const categorySchema = new Schema({
         required: true,
     },
 
-    recipes: [{type: ObjectId, ref: "Recipe"}]
+    //recipes: [{type: ObjectId, ref: "Recipe"}]
 
 });
 
