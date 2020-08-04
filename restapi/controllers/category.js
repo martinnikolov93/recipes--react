@@ -19,7 +19,7 @@ module.exports = {
         models.Category.findOne({title: title})
         .then((category) => {
             models.Recipe.find({category: category._id})
-            .then((recipes) => res.send(recipes))
+            .then((recipes) => res.send(recipes.reverse()))
             .catch(next);
         })
         .catch(next)

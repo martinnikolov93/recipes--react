@@ -6,6 +6,8 @@ import styles from './PageLayout.module.css'
 
 const PageLayout = (props) => {
     return (
+        <>
+        <div className='background'></div>
         <div className={styles.wrapper}>
             <IconContext.Provider value={{ color: "#ff3939", size: '2em' }}>
                 <Header />
@@ -15,6 +17,7 @@ const PageLayout = (props) => {
                 <Footer />
             </IconContext.Provider>
         </div>
+        </>
     )
 }
 

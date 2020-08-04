@@ -5,6 +5,7 @@ import dbRoutes from '../../utils/db-routes'
 const Home = () => {
     return (
         <>
+            <h2>Latest recipes</h2>
             <RecipeFetcher url={dbRoutes.getAllRecipes}/>
         </>
     )

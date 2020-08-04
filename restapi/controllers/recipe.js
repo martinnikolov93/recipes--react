@@ -3,7 +3,7 @@ const models = require('../models');
 module.exports = {
     get: (req, res, next) => {
         models.Recipe.find().populate('author')
-            .then((recipes) => res.send(recipes))
+            .then((recipes) => res.send(recipes.reverse()))
             .catch(next);
     },
 
