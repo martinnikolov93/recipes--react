@@ -1,0 +1,16 @@
+.edit-button {
+  cursor: pointer;
+  background: #000000a1;
+  padding: 8px 7px 11px 11px;
+  border: 0px solid grey;
+  border-radius: 6px;
+  margin: 5px;
+}
+
+.edit-button:hover {
+  background: #484848a1;
+}
+
+.edit-button-wrapper{
+    display: inline
+}

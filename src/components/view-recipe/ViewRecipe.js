@@ -7,6 +7,7 @@ import EditRecipeButton from '../edit-recipe-button/EditRecipeButton';
 import UserContext from '../../Context';
 
 
+
 const ViewRecipe = (props) => {
     const context = useContext(UserContext)
 
@@ -18,15 +19,18 @@ const ViewRecipe = (props) => {
         <>
             <article>
                 <img className={styles.image} src={props.recipe.url} alt={props.recipe.title} />
-                <FavouriteIcon recipeId={props.recipe._id} />
-                {props.recipe.author._id === context.user._id
-                    ?
-                    <EditRecipeButton recipeId={props.recipe._id} />
-                    :
-                    null
-                }
+                <div>
+                    <FavouriteIcon recipeId={props.recipe._id} />
+                    {props.recipe.author._id === context.user._id
+                        ?
+                        <EditRecipeButton recipeId={props.recipe._id} />
+                        :
+                        null
+                    }
+                </div>
+                <hr className={styles['recipe-hr']}/>
                 <h3>{props.recipe.title}</h3>
-                <div>{props.recipe.description + "..."}</div>
+                <div className={styles.description}>{props.recipe.description + "..."}</div>
             </article>
         </>
     )
