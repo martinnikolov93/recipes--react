@@ -92,14 +92,14 @@ class Register extends React.Component {
                 password
             })
         })
-        .then((response) => {
-            const user = response.json()
-            const authToken = response.headers.get('auth-token')
-            document.cookie = `auth-token=${authToken}`
-            this.context.logIn(user)
-            return user
-        })
-        .then((json) => console.log(json))
+            .then((response) => {
+                const authToken = response.headers.get('auth-token')
+                document.cookie = `auth-token=${authToken}`
+                return response.json()
+            })
+            .then((user) => {
+                this.context.logIn(user)
+            })
     }
 
     changeHandlerEmail = (event) => {
