@@ -5,7 +5,7 @@ const secret = 'secret';
 
 module.exports = (app) => {
     app.use(cors({
-      exposedHeaders: 'auth-token'
+      exposedHeaders: ['auth-token', 'error']
     }));
 
     app.use(express.json())

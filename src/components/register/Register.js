@@ -93,13 +93,25 @@ class Register extends React.Component {
             })
         })
             .then((response) => {
+                if(response.headers.get('error') === 'email-taken'){
+                    return 'error'
+                }
+                
                 const authToken = response.headers.get('auth-token')
                 document.cookie = `auth-token=${authToken}`
                 return response.json()
             })
             .then((user) => {
+                if(user === 'error'){
+                    let errors = {}
+                    errors.taken = 'Email is already taken!'
+                    this.setState({emailErrors: errors})
+                    return
+                }
+
                 this.context.logIn(user)
             })
+            .catch((err) => console.log(err))
     }
 
     changeHandlerEmail = (event) => {

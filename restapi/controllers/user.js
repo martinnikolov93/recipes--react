@@ -1,6 +1,7 @@
 const models = require('../models');
 const config = require('../config/config');
 const utils = require('../utils');
+const e = require('express');
 
 module.exports = {
     get: (req, res, next) => {
@@ -24,11 +25,24 @@ module.exports = {
     post: {
         register: (req, res, next) => {
             const { email, password } = req.body;
-            models.User.create({ email, password })
-                .then((createdUser) => {
-                    const token = utils.jwt.createToken({ id: createdUser._id });
-                    createdUser.token = token
-                    res.header("auth-token", token).send(createdUser);
+
+            models.User.findOne({ email })
+                .then((user) => {
+                    if (user) {
+                        res.header("error", "email-taken").send()
+                        return
+                    }
+
+                    models.User.create({ email, password })
+                        .then((createdUser) => {
+                            const token = utils.jwt.createToken({ id: createdUser._id });
+                            createdUser.token = token
+                            res.header("auth-token", token).send(createdUser);
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+
                 })
                 .catch((err) => {
                     console.log(err)
@@ -73,8 +87,9 @@ module.exports = {
                 .then((user) => Promise.all([user, user.matchPassword(password)]))
                 .then(([user, match]) => {
                     if (!match) {
-                        res.status(401).send('Invalid password');
-                        return;
+                        //res.status(401).send('Invalid password');
+                        res.header("error", "wrong-credentials").send()
+                        return
                     }
 
                     const token = utils.jwt.createToken({ id: user._id });

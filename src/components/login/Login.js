@@ -67,16 +67,25 @@ class Login extends React.Component {
             })
         })
         .then((response) => {
+            if(response.headers.get('error') === 'wrong-credentials'){
+                return 'error'
+            }
+
             const authToken = response.headers.get('auth-token')
             document.cookie = `auth-token=${authToken}`
             return response.json()
         })
         .then((user) => {
+            if(user === 'error'){
+                let errors = {}
+                errors.wrong = 'Email or password are wrong!'
+                this.setState({emailErrors: errors, passwordErrors: errors})
+                return
+            }
+
             this.context.logIn(user)
             return user
         })
-
-        console.log('form was submited')
     }
 
     changeHandlerEmail = (event) => {
