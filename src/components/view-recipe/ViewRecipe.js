@@ -31,14 +31,15 @@ const ViewRecipe = (props) => {
                 <hr className={styles['recipe-hr']} />
                 <h3>{props.recipe.title}</h3>
                 <div className={styles.description}>{props.recipe.description + "..."}</div>
-                <br />
+                <br /><br />
+                <h2>Rate</h2>
                 <hr className={styles['recipe-hr']} />
                 <div>
                     <AddReview recipeId={props.recipe._id} />
                 </div>
-                <br />
+                <br /><br />
+                <h2>Reviews</h2>
                 <hr className={styles['recipe-hr']} />
-                <div>Reviews</div>
                 <div>
                     <RecipeReviewsWrapper reviews={props.recipe.reviews} />
                 </div>
