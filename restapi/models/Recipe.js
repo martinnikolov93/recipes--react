@@ -25,6 +25,8 @@ const recipeSchema = new Schema({
         ref: "Category"
     },
 
+    reviews: [{type: ObjectId, ref: "Review"}],
+
     author: {
         type: ObjectId,
         ref: "User"

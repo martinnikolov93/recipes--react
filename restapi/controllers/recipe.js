@@ -2,14 +2,14 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res, next) => {
-        models.Recipe.find().populate('author')
+        models.Recipe.find().populate('author').populate('reviews')
             .then((recipes) => res.send(recipes.reverse()))
             .catch(next);
     },
 
     getOne: (req, res, next) => {
         const id = req.params.id
-        models.Recipe.findById(id).populate('author')
+        models.Recipe.findById(id).populate('author').populate('reviews')
             .then((recipe) => res.send(recipe))
             .catch(next);
     },

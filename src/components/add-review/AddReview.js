@@ -65,7 +65,7 @@ const AddReview = (props) => {
 
     return (
         <>
-            <div>Rating:</div>
+            <div>Rate:</div>
             <span data-rating="1" onClick={changeHandlerRating}>{rating > 0 ? <FaStar /> : <FaRegStar />}</span>
             <span data-rating="2" onClick={changeHandlerRating}>{rating > 1 ? <FaStar /> : <FaRegStar />}</span>
             <span data-rating="3" onClick={changeHandlerRating}>{rating > 2 ? <FaStar /> : <FaRegStar />}</span>
