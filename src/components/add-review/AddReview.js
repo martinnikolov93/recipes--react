@@ -75,7 +75,7 @@ const AddReview = (props) => {
 
             <form onSubmit={submitHandler}>
                 <div>
-                    <div>Your review: (Optional)</div>
+                    <div>Comment: (Optional)</div>
                     <textarea className={styles['add-review-textarea']} onChange={changeHandlerComment}></textarea>
                 </div>
                 <div>

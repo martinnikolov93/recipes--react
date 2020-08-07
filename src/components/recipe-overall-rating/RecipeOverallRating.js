@@ -27,7 +27,7 @@ const RecipeOverallRating = (props) => {
         <IconContext.Provider value={{ color: "rgb(255 205 0)", size: '1.5em' }}>
             <div>
                 {['', '', '', '', ''].map((emptyTrash, i) => {
-                    return <span key={i}>{i < overallRating ? <FaStar width="1em" /> : <FaRegStar width="1em" />}</span>
+                    return <span key={i}>{i < overallRating ? <FaStar /> : <FaRegStar />}</span>
                 })}
             </div>
         </IconContext.Provider>

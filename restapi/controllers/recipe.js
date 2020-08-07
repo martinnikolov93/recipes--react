@@ -9,7 +9,12 @@ module.exports = {
 
     getOne: (req, res, next) => {
         const id = req.params.id
-        models.Recipe.findById(id).populate('author').populate('reviews')
+        models.Recipe.findById(id).populate('author').populate({
+            path: 'reviews',
+            populate: {
+                path: 'author'
+            }
+        })
             .then((recipe) => res.send(recipe))
             .catch(next);
     },

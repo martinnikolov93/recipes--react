@@ -1,0 +1,7 @@
+.wrapper {
+  width: 300px;
+  border: 1px solid #dbdbdb;
+  display: inline-block;
+  padding: 21px;
+  margin: 5px;
+}
