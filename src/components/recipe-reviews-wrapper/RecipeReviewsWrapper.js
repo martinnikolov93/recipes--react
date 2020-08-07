@@ -10,10 +10,10 @@ const RecipeReviewsWrapper = (props) => {
 
     return (
         <IconContext.Provider value={{ color: "rgb(255 205 0)", size: '1em' }}>
-            <div>
-                {props.reviews.map((review, i) => {
+            <div className={styles.wrapper}>
+                {props.reviews.reverse().map((review, i) => {
                     return (
-                        <div key={i} className={styles.wrapper}>
+                        <div key={i} className={styles.box}>
                             <div>{review.author.email}</div>
                             <hr />
                             {['', '', '', '', ''].map((emptyTrash, i) => {
@@ -24,7 +24,7 @@ const RecipeReviewsWrapper = (props) => {
                     )
                 })}
             </div>
-        </IconContext.Provider>
+        </IconContext.Provider >
     )
 }
 
