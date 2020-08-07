@@ -17,8 +17,7 @@ const RecipeOverallRating = (props) => {
         } else {
             overallRating = 0
         }
-
-        console.log(overallRating)
+        
         setOverallRating(overallRating)
 
     }, [props.reviews])

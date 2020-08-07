@@ -18,7 +18,7 @@ module.exports = {
         const title = req.params.title
         models.Category.findOne({title: title})
         .then((category) => {
-            models.Recipe.find({category: category._id})
+            models.Recipe.find({category: category._id}).populate('reviews')
             .then((recipes) => res.send(recipes.reverse()))
             .catch(next);
         })

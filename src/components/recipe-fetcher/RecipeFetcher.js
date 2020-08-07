@@ -16,6 +16,10 @@ class RecipeFetcher extends React.Component {
             .then((json) => this.setState({ recipes: json }))
     }
 
+    componentDidUpdate() {
+        console.log(this.state.recipes)
+    }
+
     render() {
         if (this.state.recipes == null) {
             return 'Loading..'

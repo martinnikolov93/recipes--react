@@ -1,7 +1,6 @@
 const models = require('../models');
 const config = require('../config/config');
 const utils = require('../utils');
-const e = require('express');
 
 module.exports = {
     get: (req, res, next) => {
@@ -11,14 +10,26 @@ module.exports = {
     },
 
     getUserRecipes: (req, res, next) => {
-        models.User.findById(req.query.id).populate('recipes')
+        models.User.findById(req.query.id).populate({
+            path : 'recipes',
+            populate : {
+              path : 'reviews'
+            }
+          })
             .then((user) => res.send(user.recipes.reverse()))
             .catch((err) => res.status(500).send("Error"))
     },
 
     getUserFavourites: (req, res, next) => {
-        models.User.findById(req.query.id).populate('favourites')
-            .then((user) => res.send(user.favourites.reverse()))
+        models.User.findById(req.query.id).populate({
+            path : 'favourites',
+            populate : {
+              path : 'reviews'
+            }
+          })
+            .then((user) => {
+                res.send(user.favourites.reverse())
+            })
             .catch((err) => res.status(500).send("Error"))
     },
 
