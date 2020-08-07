@@ -2,31 +2,25 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res, next) => {
-        models.Recipe.find().populate('author')
-            .then((recipes) => res.send(recipes.reverse()))
+        models.Review.find()
+            .then((data) => res.send(data.reverse()))
             .catch(next);
     },
 
     getOne: (req, res, next) => {
         const id = req.params.id
-        models.Recipe.findById(id).populate('author')
-            .then((recipe) => res.send(recipe))
+        models.Review.findById(id)
+            .then((review) => res.send(review))
             .catch(next);
     },
 
     post: (req, res, next) => {
-        const { title, url, categoryId, description } = req.body;
+        const { rating, comment, recipeId } = req.body;
         const { _id } = req.user;
 
-        models.Recipe.create({ title, url, category: categoryId, description, author: _id })
-            .then((createdRecipe) => {
-                return Promise.all([
-                    models.User.updateOne({ _id }, { $push: { recipes: createdRecipe } }),
-                    models.Recipe.findOne({ _id: createdRecipe._id }),
-                ]);
-            })
-            .then(([modifiedObj, recipeObj]) => {
-                res.send(recipeObj);
+        models.Review.create({ rating, comment, recipe: recipeId, author: _id })
+            .then((createdReview) => {
+                res.send(createdReview);
             })
             .catch(next);
     },

@@ -52,7 +52,6 @@ class Login extends React.Component {
         this.setState({ emailErrors, passwordErrors })
 
         if (emailErrors || passwordErrors) {
-            console.log('form wont be submited')
             return
         }
 

@@ -5,6 +5,7 @@ import FavouriteIcon from '../favourite-icon/FavouriteIcon';
 import { isEmptyObject } from '../../utils/helpers';
 import EditRecipeButton from '../edit-recipe-button/EditRecipeButton';
 import UserContext from '../../Context';
+import AddReview from '../add-review/AddReview';
 
 
 
@@ -28,9 +29,13 @@ const ViewRecipe = (props) => {
                         null
                     }
                 </div>
-                <hr className={styles['recipe-hr']}/>
+                <hr className={styles['recipe-hr']} />
                 <h3>{props.recipe.title}</h3>
                 <div className={styles.description}>{props.recipe.description + "..."}</div>
+                <br />
+                <div>
+                    <AddReview recipeId={props.recipe._id} />
+                </div>
             </article>
         </>
     )
