@@ -7,16 +7,16 @@ import styles from './PageLayout.module.css'
 const PageLayout = (props) => {
     return (
         <>
-        <div className='background'></div>
-        <div className={styles.wrapper}>
-            <IconContext.Provider value={{ color: "#ff3939", size: '2em' }}>
-                <Header />
-                <main className={styles['content-wrapper']}>
-                    {props.children}
-                </main>
-                <Footer />
-            </IconContext.Provider>
-        </div>
+            <div className='background'></div>
+            <div className={styles.wrapper}>
+                <IconContext.Provider value={{ color: "rgb(255 205 0)", size: '2em' }}>
+                    <Header />
+                    <main className={styles['content-wrapper']}>
+                        {props.children}
+                    </main>
+                    <Footer />
+                </IconContext.Provider>
+            </div>
         </>
     )
 }

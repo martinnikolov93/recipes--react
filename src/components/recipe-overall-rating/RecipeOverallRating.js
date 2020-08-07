@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import { IconContext } from 'react-icons'
 
 const RecipeOverallRating = (props) => {
     const [overallRating, setOverallRating] = useState(0)
@@ -17,17 +18,19 @@ const RecipeOverallRating = (props) => {
         } else {
             overallRating = 0
         }
-        
+
         setOverallRating(overallRating)
 
     }, [props.reviews])
 
     return (
-        <div>
-            {['', '', '', '', ''].map((emptyTrash, i) => {
-                return <span key={i}>{i < overallRating ? <FaStar /> : <FaRegStar />}</span>
-            })}
-        </div>
+        <IconContext.Provider value={{ color: "rgb(255 205 0)", size: '1.5em' }}>
+            <div>
+                {['', '', '', '', ''].map((emptyTrash, i) => {
+                    return <span key={i}>{i < overallRating ? <FaStar width="1em" /> : <FaRegStar width="1em" />}</span>
+                })}
+            </div>
+        </IconContext.Provider>
     )
 }
 
