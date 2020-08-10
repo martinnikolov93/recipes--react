@@ -5,6 +5,7 @@ import styles from './AddReview.module.css'
 import RecipeReviewsWrapper from '../recipe-reviews-wrapper/RecipeReviewsWrapper';
 import UserContext from '../../Context';
 import { Link } from 'react-router-dom';
+import { config } from './utils/constants'
 
 const AddReview = (props) => {
     const [rating, setRating] = useState(0)
@@ -25,7 +26,7 @@ const AddReview = (props) => {
             return
         }
 
-        fetch('http://localhost:9999/api/review', {
+        fetch(config.url.API_URL + '/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

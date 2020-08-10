@@ -2,7 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import UserContext from '../../Context';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import styles from './FavouriteIcon.module.css'
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
+import { config } from './utils/constants'
 
 const FavouriteIcon = (props) => {
 
@@ -17,7 +18,7 @@ const FavouriteIcon = (props) => {
     }, [isFav, props.recipeId, context.loggedIn, context.user.favourites])
 
     const removeFromFav = () => {
-        fetch('http://localhost:9999/api/user/favourites/' + context.user._id, {
+        fetch(config.url.API_URL + '/user/favourites/' + context.user._id, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +40,7 @@ const FavouriteIcon = (props) => {
             return history.push('/login')
         }
 
-        fetch('http://localhost:9999/api/user/favourites/' + context.user._id, {
+        fetch(config.url.API_URL + '/user/favourites/' + context.user._id, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

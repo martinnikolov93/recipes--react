@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
+import { config } from './utils/constants'
 
 const useFetchGet = (route) => {
     const [data, setData] = useState()
-    const URL = 'http://localhost:9999/api'
 
     useEffect(() => {
-        fetch(URL + route)
+        fetch(config.url.API_URL + route)
             .then((response) => response.json())
             .then((data) => {
                 setData(data)

@@ -1,7 +1,7 @@
 import React from 'react';
-
-import  UserContext  from './Context'
+import UserContext from './Context'
 import { getCookie } from './utils/helpers'
+import { config } from './utils/constants'
 
 class AuthController extends React.Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class AuthController extends React.Component {
             return
         }
 
-        fetch('http://localhost:9999/api/user/verify', {
+        fetch(config.url.API_URL + '/user/verify', {
             method: 'POST',
             body: JSON.stringify({
                 token

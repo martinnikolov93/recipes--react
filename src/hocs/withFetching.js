@@ -1,6 +1,5 @@
 import React from 'react'
-
-const API = 'http://localhost:9999/api'
+import { config } from './utils/constants'
 
 const withFetching = (url) => (Component) =>
   class WithFetching extends React.Component {
@@ -17,7 +16,7 @@ const withFetching = (url) => (Component) =>
     componentDidMount() {
       this.setState({ isLoading: true });
 
-      fetch(API + url)
+      fetch(config.url.API_URL + url)
         .then((response) => response.json())
         .then((result) => {
           this.setState({

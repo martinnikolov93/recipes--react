@@ -1,12 +1,8 @@
 import React from 'react';
-
 import { withRouter } from 'react-router-dom';
-
 import { isEmptyObject, getCookie } from '../../utils/helpers'
-import dbRoutes from '../../utils/db-routes';
-
 import styles from './AddRecipe.module.css'
-
+import { config } from './utils/constants'
 
 class AddRecipe extends React.Component {
     state = {
@@ -22,7 +18,7 @@ class AddRecipe extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:9999/api/category')
+        fetch(config.url.API_URL + '/category')
             .then((response) => response.json())
             .then((categories) => {
                 this.setState({ categories })
@@ -102,7 +98,7 @@ class AddRecipe extends React.Component {
             return
         }
 
-        fetch(dbRoutes.postRecipe, {
+        fetch(config.url.API_URL + '/recipe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -138,7 +134,7 @@ class AddRecipe extends React.Component {
     changeHandlerCategories = (event) => {
         const categoryId = event.target.value
         const categoryErrors = this.categoryValidator(categoryId)
-        this.setState({categoryId, categoryErrors})
+        this.setState({ categoryId, categoryErrors })
     }
 
     changeHandlerDescription = (event) => {

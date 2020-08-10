@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom'
-
 import { isEmptyObject } from '../../utils/helpers'
 import UserContext from '../../Context';
+import { config } from './utils/constants'
 
 class Register extends React.Component {
     state = {
@@ -82,7 +81,7 @@ class Register extends React.Component {
             return
         }
 
-        fetch('http://localhost:9999/api/user/register', {
+        fetch(config.url.API_URL + '/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -93,19 +92,19 @@ class Register extends React.Component {
             })
         })
             .then((response) => {
-                if(response.headers.get('error') === 'email-taken'){
+                if (response.headers.get('error') === 'email-taken') {
                     return 'error'
                 }
-                
+
                 const authToken = response.headers.get('auth-token')
                 document.cookie = `auth-token=${authToken}`
                 return response.json()
             })
             .then((user) => {
-                if(user === 'error'){
+                if (user === 'error') {
                     let errors = {}
                     errors.taken = 'Email is already taken!'
-                    this.setState({emailErrors: errors})
+                    this.setState({ emailErrors: errors })
                     return
                 }
 

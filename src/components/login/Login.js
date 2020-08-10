@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom'
 import UserContext from '../../Context';
-
 import { isEmptyObject } from '../../utils/helpers'
+import { config } from './utils/constants'
 
 class Login extends React.Component {
     state = {
@@ -55,7 +54,7 @@ class Login extends React.Component {
             return
         }
 
-        fetch('http://localhost:9999/api/user/login', {
+        fetch(config.url.API_URL + '/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

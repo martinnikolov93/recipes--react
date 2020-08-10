@@ -1,9 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import { isEmptyObject, getCookie } from '../../utils/helpers'
-import dbRoutes from '../../utils/db-routes';
 import styles from './EditRecipe.module.css'
-import UserContext from '../../Context';
+import UserContext from '../../Context'
+import { config } from './utils/constants'
 
 class EditRecipe extends React.Component {
     state = {
@@ -19,7 +19,7 @@ class EditRecipe extends React.Component {
     }
 
     componentDidMount() {
-        fetch(dbRoutes.getRecipeByID(this.props.match.params.id))
+        fetch(config.url.API_URL + `/recipe/${this.props.match.params.id}`)
             .then((response) => response.json())
             .then((recipe) => {
 
@@ -37,7 +37,7 @@ class EditRecipe extends React.Component {
             })
             .catch((err) => console.log(err))
 
-            fetch('http://localhost:9999/api/category')
+        fetch(config.url.API_URL + '/category')
             .then((response) => response.json())
             .then((categories) => {
                 this.setState({ categories })
@@ -113,11 +113,11 @@ class EditRecipe extends React.Component {
 
         this.setState({ titleErrors, urlErrors, descriptionErrors })
 
-        if (titleErrors || urlErrors || categoryErrors  || descriptionErrors) {
+        if (titleErrors || urlErrors || categoryErrors || descriptionErrors) {
             return
         }
 
-        fetch(dbRoutes.putRecipe(this.props.match.params.id), {
+        fetch(config.url.API_URL + `/recipe/${this.props.match.params.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ class EditRecipe extends React.Component {
     changeHandlerCategories = (event) => {
         const categoryId = event.target.value
         const categoryErrors = this.categoryValidator(categoryId)
-        this.setState({categoryId, categoryErrors})
+        this.setState({ categoryId, categoryErrors })
     }
 
     changeHandlerDescription = (event) => {
