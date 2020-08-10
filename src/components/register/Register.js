@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { isEmptyObject } from '../../utils/helpers'
 import UserContext from '../../Context';
-import { config } from './utils/constants'
+import { config } from '../../utils/constants'
 
 class Register extends React.Component {
     state = {

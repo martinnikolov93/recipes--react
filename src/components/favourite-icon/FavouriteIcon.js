@@ -3,7 +3,7 @@ import UserContext from '../../Context';
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import styles from './FavouriteIcon.module.css'
 import { useHistory } from 'react-router-dom'
-import { config } from './utils/constants'
+import { config } from '../../utils/constants'
 
 const FavouriteIcon = (props) => {
 

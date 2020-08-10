@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import UserContext from '../../Context';
 import { isEmptyObject } from '../../utils/helpers'
-import { config } from './utils/constants'
+import { config } from '../../utils/constants'
 
 class Login extends React.Component {
     state = {

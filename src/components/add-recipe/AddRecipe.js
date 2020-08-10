@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { isEmptyObject, getCookie } from '../../utils/helpers'
 import styles from './AddRecipe.module.css'
-import { config } from './utils/constants'
+import { config } from '../../utils/constants'
 
 class AddRecipe extends React.Component {
     state = {

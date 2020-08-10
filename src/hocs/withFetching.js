@@ -1,5 +1,5 @@
 import React from 'react'
-import { config } from './utils/constants'
+import { config } from '../utils/constants'
 
 const withFetching = (url) => (Component) =>
   class WithFetching extends React.Component {

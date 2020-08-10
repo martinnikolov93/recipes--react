@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { isEmptyObject, getCookie } from '../../utils/helpers'
 import styles from './EditRecipe.module.css'
 import UserContext from '../../Context'
-import { config } from './utils/constants'
+import { config } from '../../utils/constants'
 
 class EditRecipe extends React.Component {
     state = {
