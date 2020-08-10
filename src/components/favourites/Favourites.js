@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import UserContext from '../../Context';
-import RecipeFetcher from '../recipe-fetcher/RecipeFetcher';
-import dbRoutes from '../../utils/db-routes';
+import RecipesWrapper from '../recipes-wrapper/RecipesWrapper';
+import withFetching from '../../hocs/withFetching'
 
 const Favourites = () => {
     const context = useContext(UserContext)
-
+    const RecipesWrapperWithFetch = withFetching(`/user/favourites?id=${context.user._id}`)(RecipesWrapper)
     return (
         <>
-            <RecipeFetcher url={dbRoutes.getUserFavourites(context.user._id)} />
+            <RecipesWrapperWithFetch />
         </>
     )
 }

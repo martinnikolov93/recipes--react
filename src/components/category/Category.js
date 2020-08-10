@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import RecipesWrapper from '../recipes-wrapper/RecipesWrapper';
+import withFetching from '../../hocs/withFetching';
 
 const Category = (props) => {
     const { title } = useParams()
-
-    const [recipes, setRecipes] = useState([])
-
-    useEffect(() => {
-        fetch(`http://localhost:9999/api/category/recipes/${props.categoryTitle ? props.categoryTitle : title}`)
-            .then((response) => response.json())
-            .then((recipes) => {
-                setRecipes(recipes)
-            })
-    }, [title, props.categoryTitle])
+    const RecipesWrapperWithFetch = withFetching(`/category/recipes/${props.categoryTitle ? props.categoryTitle : title}`)(RecipesWrapper)
 
     return (
         <>
-            <RecipesWrapper recipes={recipes} limit={props.limit ? props.limit : false} />
+            <RecipesWrapperWithFetch  limit={props.limit ? props.limit : false}/>
         </>
     )
 }

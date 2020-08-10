@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CategoriesDropdown.module.css'
 import { NavLink } from 'react-router-dom';
+import withFetching from '../../hocs/withFetching';
 
 class CategoriesDropdown extends React.Component {
     constructor(props) {
@@ -10,15 +11,6 @@ class CategoriesDropdown extends React.Component {
             categories: [],
             isHovering: false
         }
-    }
-
-    componentDidMount() {
-        fetch('http://localhost:9999/api/category/')
-            .then((response) => response.json())
-            .then((categories) => {
-                this.setState({ categories })
-            })
-            .catch((err) => console.log(err))
     }
 
     handleMouseEnter = () => {
@@ -32,9 +24,7 @@ class CategoriesDropdown extends React.Component {
     render() {
         return (
             <>
-                <span
-
-                >
+                <span>
                     <NavLink to='/categories' activeClassName={styles['nav-button-active']}
                         className={this.props.className}
                         onMouseEnter={this.handleMouseEnter}
@@ -43,23 +33,32 @@ class CategoriesDropdown extends React.Component {
                     </NavLink>
                 </span>
                 {
-                    this.state.isHovering &&
-                    <span onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} className={styles['categories-box']}>
-                        {this.state.categories.map((category, i) => {
-                            return (
-                                <div key={i}>
-                                    {i === 0 ? null : <hr />}
-                                    <NavLink className={styles['category-link']} to={`/categories/${category.title}`} activeClassName={styles['nav-button-active']}>
-                                        {category.title}
-                                    </NavLink>
-                                </div>
-                            )
-                        })}
-                    </span>
+                    !this.props.data
+                        ?
+                        null
+                        :
+                        <>
+                            {
+                                this.state.isHovering &&
+                                <span onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} className={styles['categories-box']}>
+                                    {this.props.data.map((category, i) => {
+                                        return (
+                                            <div key={i}>
+                                                {i === 0 ? null : <hr />}
+                                                <NavLink className={styles['category-link']} to={`/categories/${category.title}`} activeClassName={styles['nav-button-active']}>
+                                                    {category.title}
+                                                </NavLink>
+                                            </div>
+                                        )
+                                    })}
+                                </span>
+                            }
+                        </>
                 }
+
             </>
         )
     }
 }
 
-export default CategoriesDropdown
+export default withFetching('/category/')(CategoriesDropdown)

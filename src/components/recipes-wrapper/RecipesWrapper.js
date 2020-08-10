@@ -4,8 +4,12 @@ import RecipeBox from '../recipe-box/RecipeBox';
 import styles from './RecipesWrapper.module.css'
 
 const RecipesWrapper = (props) => {
+    let recipes = props.data || props.recipes
+    if (!recipes) {
+        return 'Loading..'
+    }
+
     const limit = props.limit
-    let recipes = props.recipes
     if (limit) {
         recipes = recipes.slice(0, limit)
     }
