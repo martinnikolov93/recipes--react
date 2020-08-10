@@ -11,7 +11,7 @@ const RecipeReviewsWrapper = (props) => {
     return (
         <IconContext.Provider value={{ color: "rgb(255 205 0)", size: '1em' }}>
             <div className={styles.wrapper}>
-                {props.reviews.reverse().map((review, i) => {
+                {props.reviews.map((review, i) => {
                     return (
                         <div key={i} className={styles.box}>
                             <div>{review.author.email}</div>

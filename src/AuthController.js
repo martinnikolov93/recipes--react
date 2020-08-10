@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UserContext from './Context'
+import  UserContext  from './Context'
 import { getCookie } from './utils/helpers'
 
 class AuthController extends React.Component {

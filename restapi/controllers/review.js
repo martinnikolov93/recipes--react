@@ -30,7 +30,10 @@ module.exports = {
                 models.Recipe.updateOne({ _id: recipeId }, { $push: { reviews: createdReview } })
                     .catch(next)
 
-                res.send(createdReview);
+                models.Review.populate(createdReview, { path: 'author' })
+                    .then((populatedReview) => {
+                        res.send(populatedReview);
+                    })
             })
             .catch(next);
     },

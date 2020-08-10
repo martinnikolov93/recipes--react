@@ -6,7 +6,6 @@ import { isEmptyObject } from '../../utils/helpers';
 import EditRecipeButton from '../edit-recipe-button/EditRecipeButton';
 import UserContext from '../../Context';
 import AddReview from '../add-review/AddReview';
-import RecipeReviewsWrapper from '../recipe-reviews-wrapper/RecipeReviewsWrapper';
 
 const ViewRecipe = (props) => {
     const context = useContext(UserContext)
@@ -35,13 +34,7 @@ const ViewRecipe = (props) => {
                 <h2>Rate</h2>
                 <hr className={styles['recipe-hr']} />
                 <div>
-                    <AddReview recipeId={props.recipe._id} />
-                </div>
-                <br /><br />
-                <h2>Reviews</h2>
-                <hr className={styles['recipe-hr']} />
-                <div>
-                    <RecipeReviewsWrapper reviews={props.recipe.reviews} />
+                    <AddReview recipeId={props.recipe._id} reviews={props.recipe.reviews} />
                 </div>
             </article>
         </>
