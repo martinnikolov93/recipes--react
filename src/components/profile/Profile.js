@@ -8,6 +8,7 @@ const Profile = () => {
     const RecipesWrapperWithFetch = withFetching(`/user/recipes?id=${context.user._id}`)(RecipesWrapper)
     return (
         <>
+            <h3>Email: {context.user.email}</h3>
             <h3>Your recipes:</h3>
             <RecipesWrapperWithFetch />
         </>

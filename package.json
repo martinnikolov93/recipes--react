@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-express": "(cd restapi && npm run start)",
+    "start-express": "(cd.. && cd recipes-nodejs-api && npm run start)",
     "start-react": "react-scripts start",
     "dev": "npm-run-all --parallel start-express start-react"
   },
