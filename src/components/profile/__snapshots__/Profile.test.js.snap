@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile component Should render profile component 1`] = `
+Array [
+  <h3>
+    Email: 
+    test@test.com
+  </h3>,
+  <h3>
+    Your recipes:
+  </h3>,
+  <With Fetching Hoc />,
+]
+`;

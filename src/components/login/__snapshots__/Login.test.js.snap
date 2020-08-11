@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component Should render login component 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="email"
+      />
+      <input
+        className=""
+        id="email"
+        onChange={[Function]}
+        placeholder="Email"
+        type="email"
+        value=""
+      />
+      <div
+        className="input-error-text"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+      />
+      <input
+        className=""
+        id="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <div
+        className="input-error-text"
+      />
+    </div>
+    <button>
+      Login
+    </button>
+  </form>
+  <br />
+  <div>
+    Don't have an account? Go to 
+    <a
+      href="/register"
+      onClick={[Function]}
+    >
+      Register Page
+    </a>
+     and create one!
+  </div>
+</div>
+`;
