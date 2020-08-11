@@ -20,6 +20,7 @@ import ViewRecipePage from './pages/recipes/view-recipe/ViewRecipePage';
 import EditRecipePage from './pages/recipes/edit-recipe/EditRecipePage';
 import CategoryPage from './pages/category/CategoryPage';
 import CategoriesPage from './pages/categories/CategoriesPage';
+import NotFoundPage from './pages/not-found/NotFoundPage';
 
 const Router = () => {
     const context = useContext(UserContext)
@@ -41,6 +42,7 @@ const Router = () => {
                 {/* --Unauth routes-- */}
                 <Route path='/login'>{!context.loggedIn ? <LoginPage /> : <Redirect to="/" />}</Route>
                 <Route path='/register'>{!context.loggedIn ? <RegisterPage /> : <Redirect to="/" />}</Route>
+                <Route component={NotFoundPage} />
             </Switch>
         </BrowserRouter>
     )
