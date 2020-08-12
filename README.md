@@ -132,12 +132,15 @@ You can view a deployed version of the project here [React Recipes](http://react
 #### Public routes
 
 - `/`
+
   - **HomePage** component
 
 - `/categories`
+
   - **CategoriesPage** component
 
 - `/categories/:title`
+
   - **CategoryPage** component
 
 - `/recipe/view/:id`
@@ -146,6 +149,7 @@ You can view a deployed version of the project here [React Recipes](http://react
 #### Guest routes
 
 - `/login`
+
   - **LoginPage** component
 
 - `/register`
@@ -154,22 +158,27 @@ You can view a deployed version of the project here [React Recipes](http://react
 #### Authenticated routes
 
 - `/recipe/add`
+
   - **AddRecipePage** component
 
 - `/recipe/edit/:id`
+
   - **EditRecipePage** component
 
 - `/favourites`
+
   - **FavouritesPage** component
 
 - `/profile`
+
   - **ProfilePage** component
 
 - `/logout`
   - **LogoutPage** component
 
 #### Everything else routes
-  - **NotFoundPage** component
+
+- **NotFoundPage** component
 
 ## Learn More
 
