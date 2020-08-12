@@ -127,22 +127,49 @@ You can view a deployed version of the project here [React Recipes](http://react
 
 - `withFetching.js` - Mutates a component by fetching and providing the data to it with the props object
 
-## Routes
+## Navigation
+
+#### Public routes
 
 - `/`
   - **HomePage** component
+
 - `/categories`
   - **CategoriesPage** component
+
 - `/categories/:title`
   - **CategoryPage** component
+
 - `/recipe/view/:id`
   - **ViewRecipePage** component
+
+#### Guest routes
+
 - `/login`
   - **LoginPage** component
+
 - `/register`
   - **RegisterPage** component
-- `/`
-  - **HomePage** component
+
+#### Authenticated routes
+
+- `/recipe/add`
+  - **AddRecipePage** component
+
+- `/recipe/edit/:id`
+  - **EditRecipePage** component
+
+- `/favourites`
+  - **FavouritesPage** component
+
+- `/profile`
+  - **ProfilePage** component
+
+- `/logout`
+  - **LogoutPage** component
+
+#### Everything else routes
+  - **NotFoundPage** component
 
 ## Learn More
 

@@ -42,6 +42,7 @@ const Router = () => {
                 {/* --Unauth routes-- */}
                 <Route path='/login'>{!context.loggedIn ? <LoginPage /> : <Redirect to="/" />}</Route>
                 <Route path='/register'>{!context.loggedIn ? <RegisterPage /> : <Redirect to="/" />}</Route>
+                {/* --Not found routes-- */}
                 <Route component={NotFoundPage} />
             </Switch>
         </BrowserRouter>
