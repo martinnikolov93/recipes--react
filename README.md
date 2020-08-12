@@ -130,14 +130,19 @@ You can view a deployed version of the project here [React Recipes](http://react
 ## Routes
 
 - `/`
-    - `HomePage` component
-- `/categories` 
-    - `CategoriesPage` component
-  `/categories/:title` -> `CategoryPage` component
-  `/recipe/view/:id` -> `ViewRecipePage` component
-  `/login` -> `LoginPage` component
-  `/register` -> `RegisterPage` component
-  `/` -> `HomePage` component
+  - `HomePage` component
+- `/categories`
+  - `CategoriesPage` component
+- `/categories/:title`
+  - `CategoryPage` component
+- `/recipe/view/:id`
+  - `ViewRecipePage` component
+- `/login`
+  - `LoginPage` component
+- `/register`
+  - `RegisterPage` component
+- `/`
+  - `HomePage` component
 
 ## Learn More
 
