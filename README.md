@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About
 
-Simple recipes sharing website written in react. You can view all recipes or by category, create an account, publish your own recipes, add the ones you like in your favourites, rate and comment regardless you liked a recipe or not.
+Simple recipes sharing website written in react. You can view all recipes or by category, create an account, publish your own recipes, add the ones you like in your favorites, rate and comment regardless you liked a recipe or not.
 
 ## Libraries and apis used to make this project
 
@@ -63,51 +63,69 @@ You can view a deployed version of the project here [React Recipes](http://react
   - Login with an existing account
 
 - Authenticated visitors can:
+
   - Publish a recipe
   - Edit their published recipes
   - View their profile and see their published recipes
-  - Add or remove a recipe to/from favourites
-  - View favourite recipes
+  - Add or remove a recipe to/from favorites
+  - View favorite recipes
   - Rate a recipe by choosing stars from 1-5 and leaving a comment
   - Logout from their account
 
 ## Project files explanation
 
+- `index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**.
+
 #### Main components
 
-- `index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**
-- `App.js` - Holds the whole application. Wraps all routes with `AuthController`
-- `AuthController` - Provides login and logout functionalities. Checks if the user is logged in and provides the data to the `Router`.
-- `Router` - Determines which route has been activated and provides the corresponding component. Also protects routes depending on user authentication.
+- `App.js` - Holds the whole application. Wraps all routes with `AuthController`.
+- `AuthController.js` - Holds login and logout functionalities. Checks if the user is logged in and provides the data with `UserContext` to the `Router`.
+- `Router.js` - Determines which route has been activated and provides the corresponding component. Also protects routes depending on user authentication.
+- `Context.js` - Holds all contexts. For now only `UserContext` is needed.
 
 #### Page components
 
-- `HomePage.js` - Landing page. Shows all recipes. Loads `Home` component
-- `CategoriesPage.js` - Shows all categories. Loads `Categories` component
-- `CategoryPage.js` - Shows all recipes for certain category. Loads `Category` component
-- `FavouritesPage.js` - Shows user's favorite recipes. Loads `Favourites` component
-- `LoginPage.js` - Shows login form. Loads `Login` component
-- `RegisterPage.js` - Shows register form. Loads `Register` component
+- `HomePage.js` - Landing page. Shows all recipes. Loads `Home` component.
+- `CategoriesPage.js` - Shows all categories. Loads `Categories` component.
+- `CategoryPage.js` - Shows all recipes for certain category. Loads `Category` component.
+- `FavouritesPage.js` - Shows user's favorite recipes. Loads `favorites` component.
+- `LoginPage.js` - Shows login form. Loads `Login` component.
+- `RegisterPage.js` - Shows register form. Loads `Register` component.
 - `LogoutPage.js` - Logouts the user.
-- `NotFoundPage.js` - Shows that a page doesn't exist when an invalid route in `Router.js` has been activated
-- `ProfilePage.js` - Shows user's data. Loads `Profile` component
-- `AddRecipePage.js` - Shows form for publishing a recipe. Loads `AddRecipe` component
-- `EditRecipePage.js` - Shows form for editing a published recipe. Loads `EditRecipe` component
-- `ViewRecipePage.js` - Shows details for recipe. Has functionality for rating. Loads `ViewRecipe` component
+- `NotFoundPage.js` - Shows that a page doesn't exist when an invalid route in `Router.js` has been activated.
+- `ProfilePage.js` - Shows user's data. Loads `Profile` component.
+- `AddRecipePage.js` - Shows form for publishing a recipe. Loads `AddRecipe` component.
+- `EditRecipePage.js` - Shows form for editing a published recipe. Loads `EditRecipe` component.
+- `ViewRecipePage.js` - Shows details for recipe. Has functionality for rating. Loads `ViewRecipe` component.
 
 #### Components
 
-- `Home.js` - Fetches all data from the `API` and shows all recipes with `RecipesWrapper`
-- `AddRecipe.js` - Shows all inputs required for publishing a recipe. Validates the input. Sends a post request with the data on submit.
-- `Home.js`
-- `Home.js`
-- `Home.js`
-- `Home.js`
-- `Home.js`
-- `Home.js`
-- `Home.js`
-- `Home.js`
-- `Home.js`
+- `Home.js` - Fetches all recipe data from the `API` and shows all recipes with `RecipesWrapper` component.
+- `AddRecipe.js` - Returns all inputs required for publishing a recipe. Validates the input. Sends a post request with the data on submit.
+- `AddReview.js` - Holds rating functionality and inputs for rating a recipe and loads all reviews with `ReviewsWrapper`.
+- `Categories.js` - Fetches all category data from the `API` and shows all categories with `CategoriesWrapper`.
+- `CategoriesDropdown.js` - Holds functionality for all categories in the navigation. Will show all categories on mouse entering and will hide them on mouse leaving.
+- `CategoriesWrapper.js` - Wraps all categories and shows `Category` component for each category.
+- `Category.js` - Fetches all recipe data for the category and shows recipes with `RecipesWrapper` component.
+- `EditRecipe.js` - Loads all recipe data and fills inputs with that data for proper editing of a recipe. Validates the input. Sends a put request with the edited data on submit.
+- `EditRecipeButton.js` - Returns an icon for editing and will redirect on clicking.
+- `FavouriteIcon.js` - Holds favorite/unfavorite functionality. Returns a heart icon which can be clicked. Sends post request when adding to favorites. Sends delete request when removing from favorites.
+- `Favourites.js`- Fetches data and returns user favorites with `RecipesWrapper` component.
+- `Footer.js` - Returns a footer element with copyright text
+- `Header.js` - Returns header element with site navigation. Uses `NavLink` in order to take advantage of activeClassName property
+- `Login.js` - Returns all inputs required for logging in the user. Validates the input. Sends post request to the `API` with the data. On valid response logs in the user with `UserContext` functionality
+- `PageLayout.js` - Defines a default page layout to be used on each page.
+- `Profile.js` - Returns all user data and published recipes with `RecipesWrapper` component
+- `RecipeBox.js` - Returns a simple recipe card, with fixed size and border. Also an image, title, brief description, `FavoriteIcon` component and `RecipeOverallRating` component
+- `RecipeOverallRating.js` - Calculates the average rating for a recipe and returns the same amount of star icons.
+- `RecipeReviewsWrapper.js` - Returns all reviews for a recipe
+- `RecipesWrapper.js` - Returns recipes with `RecipeBox` component for each recipe
+- `Register.js` - Returns all inputs required for registering the user. Validates the input. Sends post request to the `API` with the data. On valid response logs in the user with `UserContext` functionality
+- `ViewRecipe.js` - Returns all details for a recipe and `FavouriteIcon`, `EditRecipeButton`, `AddReview` components
+
+#### Higher Order Components
+
+- `withFetching` - Mutates a component by fetching and providing the data to it with the props object
 
 ## Learn More
 
