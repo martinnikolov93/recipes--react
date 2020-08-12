@@ -50,20 +50,17 @@ You can view a deployed version of the project here [React Recipes](http://react
 
 ## Design
 
-- Public
-    **Everybody can:**
+- Public | All visitors can:
     - View all recipes
     - View recipes by category
     - View all categories
     - Read all reviews
 
-- Guest
-    **Guests can:**
+- Guest visitors can:
     - Create an account
     - Login with an existing account
 
-- Authenticated
-    **Users can:**
+- Authenticated visitors can:
     - Publish a recipe
     - Edit their published recipes
     - View their profile and see their published recipes
@@ -75,10 +72,10 @@ You can view a deployed version of the project here [React Recipes](http://react
 
 ## File explanation
 
-`index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**
-`App.js` - Holds the whole application. Wraps all routes with `AuthController`
-`AuthController` - Provides login and logout functionalities. Checks if the user is logged in and provides the data to the `Router`.
-`Router` - Determines which route has been activated
+- `index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**
+- `App.js` - Holds the whole application. Wraps all routes with `AuthController`
+- `AuthController` - Provides login and logout functionalities. Checks if the user is logged in and provides the data to the `Router`.
+- `Router` - Determines which route has been activated
 
 ## Learn More
 
