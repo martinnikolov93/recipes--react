@@ -72,7 +72,7 @@ You can view a deployed version of the project here [React Recipes](http://react
   - Rate a recipe by choosing stars from 1-5 and leaving a comment
   - Logout from their account
 
-## Project files explanation
+## Project architecture explanation
 
 - `index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**.
 
