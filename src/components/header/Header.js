@@ -1,7 +1,5 @@
 import React, { useContext } from 'react'
-
 import { NavLink } from 'react-router-dom'
-
 import styles from './Header.module.css'
 import UserContext from '../../Context'
 import CategoriesDropdown from '../categories-dropdown/CategoriesDropdown'
@@ -11,7 +9,6 @@ const Header = () => {
 
     return (
         <header>
-
             <h2 className="app-title"><img className="logo" src="/logo48.png" alt="logo" />React Recipes</h2>
 
             <nav>

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories dropdown component Should render Categories dropdown component 1`] = `
+<span>
+  <a
+    aria-current={null}
+    href="/categories"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    Categories
+  </a>
+</span>
+`;

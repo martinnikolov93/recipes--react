@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styles from './RecipeBox.module.css'
 import { Link } from 'react-router-dom';
 import FavouriteIcon from '../favourite-icon/FavouriteIcon';

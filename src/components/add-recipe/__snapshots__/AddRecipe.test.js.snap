@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User component Should render user component 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="title"
+      />
+      <input
+        className="recipe-input "
+        id="title"
+        onChange={[Function]}
+        placeholder="Title"
+        type="text"
+        value=""
+      />
+      <div
+        className="input-error-text"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="url"
+      />
+      <input
+        className="recipe-input "
+        id="url"
+        onChange={[Function]}
+        placeholder="Image URL"
+        type="text"
+        value=""
+      />
+      <div
+        className="input-error-text"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="categories"
+      />
+      <select
+        className="recipe-input recipe-select "
+        id="categories"
+        onChange={[Function]}
+      >
+        <option
+          value=""
+        >
+          Select Category
+        </option>
+      </select>
+      <div
+        className="input-error-text"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="description"
+      />
+      <textarea
+        className="recipe-input "
+        defaultValue=""
+        id="description"
+        onChange={[Function]}
+        placeholder="Description"
+        rows="20"
+        type="text"
+      />
+      <div
+        className="input-error-text"
+      />
+    </div>
+    <button>
+      Add Recipe
+    </button>
+  </form>
+</div>
+`;

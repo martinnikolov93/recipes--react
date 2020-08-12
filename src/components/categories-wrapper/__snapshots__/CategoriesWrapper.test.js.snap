@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories dropdown component Should render Categories dropdown component 1`] = `
+Array [
+  <div>
+    <h2>
+      category1
+    </h2>
+    <Category
+      categoryTitle="category1"
+      limit={4}
+    />
+  </div>,
+  <div>
+    <h2>
+      category2
+    </h2>
+    <Category
+      categoryTitle="category2"
+      limit={4}
+    />
+  </div>,
+  <div>
+    <h2>
+      category3
+    </h2>
+    <Category
+      categoryTitle="category3"
+      limit={4}
+    />
+  </div>,
+  <div>
+    <h2>
+      category4
+    </h2>
+    <Category
+      categoryTitle="category4"
+      limit={4}
+    />
+  </div>,
+]
+`;

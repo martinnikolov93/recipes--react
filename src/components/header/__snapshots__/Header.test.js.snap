@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Should render authenticated header component 1`] = `
+<header>
+  <h2
+    className="app-title"
+  >
+    <img
+      alt="logo"
+      className="logo"
+      src="/logo48.png"
+    />
+    React Recipes
+  </h2>
+  <nav>
+    <div
+      className="nav-buttons-wrapper"
+    >
+      <a
+        aria-current="page"
+        className="nav-button nav-button-active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Home
+      </a>
+      <span>
+        <a
+          aria-current={null}
+          className="nav-button"
+          href="/categories"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          Categories
+        </a>
+      </span>
+      <a
+        aria-current={null}
+        className="nav-button"
+        href="/recipe/add"
+        onClick={[Function]}
+      >
+        Add Recipe
+      </a>
+      <a
+        aria-current={null}
+        className="nav-button"
+        href="/favourites"
+        onClick={[Function]}
+      >
+        Favourites
+      </a>
+      <a
+        aria-current={null}
+        className="nav-button"
+        href="/profile"
+        onClick={[Function]}
+      >
+        Profile
+      </a>
+      <a
+        aria-current={null}
+        className="nav-button"
+        href="/logout"
+        onClick={[Function]}
+      >
+        Logout
+      </a>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`Header component Should render unauthenticated header component 1`] = `
+<header>
+  <h2
+    className="app-title"
+  >
+    <img
+      alt="logo"
+      className="logo"
+      src="/logo48.png"
+    />
+    React Recipes
+  </h2>
+  <nav>
+    <div
+      className="nav-buttons-wrapper"
+    >
+      <a
+        aria-current="page"
+        className="nav-button nav-button-active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Home
+      </a>
+      <span>
+        <a
+          aria-current={null}
+          className="nav-button"
+          href="/categories"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          Categories
+        </a>
+      </span>
+      <a
+        aria-current={null}
+        className="nav-button"
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+      <a
+        aria-current={null}
+        className="nav-button"
+        href="/register"
+        onClick={[Function]}
+      >
+        Register
+      </a>
+    </div>
+  </nav>
+</header>
+`;
