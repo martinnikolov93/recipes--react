@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About
 
-Simple recipes sharing website written in react. You can publish your own recipes, add the ones you like in your favourites, rate and comment regardless you liked a recipe or not.
+Simple recipes sharing website written in react. You can view all recipes or by category, create an account, publish your own recipes, add the ones you like in your favourites, rate and comment regardless you liked a recipe or not.
 
 ## Libraries and apis used to make this project
 
@@ -79,7 +79,7 @@ You can view a deployed version of the project here [React Recipes](http://react
 
 ### Pages
 
-- `HomePage.js` - Landing page. Loads `Home` component
+- `HomePage.js` - Landing page. Shows all recipes. Loads `Home` component
 - `CategoriesPage.js` - Shows all categories. Loads `Categories` component
 - `CategoryPage.js` - Shows all recipes for certain category. Loads `Category` component
 - `HomePage.js`
