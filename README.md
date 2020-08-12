@@ -11,7 +11,7 @@ Simple recipes sharing website written in react. You can view all recipes or by 
 - React router DOM
 - React scripts
 - React test renderer
-- [REST API](https://github.com/martinnikolov93/recipes-nodejs-api)
+- [Recipe REST API](https://github.com/martinnikolov93/recipes-nodejs-api)
 
 ## Installation and running
 
@@ -51,49 +51,63 @@ You can view a deployed version of the project here [React Recipes](http://react
 ## Design
 
 - Public | All visitors can:
-    - View all recipes
-    - View recipes by category
-    - View all categories
-    - Read all reviews
+
+  - View all recipes
+  - View recipes by category
+  - View all categories
+  - Read all reviews
 
 - Guest visitors can:
-    - Create an account
-    - Login with an existing account
+
+  - Create an account
+  - Login with an existing account
 
 - Authenticated visitors can:
-    - Publish a recipe
-    - Edit their published recipes
-    - View their profile and see their published recipes
-    - Add or remove a recipe to/from favourites
-    - View favourite recipes
-    - Rate a recipe by choosing stars from 1-5 and leaving a comment
-    - Logout from their account
+  - Publish a recipe
+  - Edit their published recipes
+  - View their profile and see their published recipes
+  - Add or remove a recipe to/from favourites
+  - View favourite recipes
+  - Rate a recipe by choosing stars from 1-5 and leaving a comment
+  - Logout from their account
 
+## Project files explanation
 
-## File explanation
+#### Main components
 
 - `index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**
 - `App.js` - Holds the whole application. Wraps all routes with `AuthController`
 - `AuthController` - Provides login and logout functionalities. Checks if the user is logged in and provides the data to the `Router`.
 - `Router` - Determines which route has been activated and provides the corresponding component. Also protects routes depending on user authentication.
 
-### Pages
+#### Page components
 
 - `HomePage.js` - Landing page. Shows all recipes. Loads `Home` component
 - `CategoriesPage.js` - Shows all categories. Loads `Categories` component
 - `CategoryPage.js` - Shows all recipes for certain category. Loads `Category` component
-- `HomePage.js`
-- `HomePage.js`
-- `HomePage.js`
+- `FavouritesPage.js` - Shows user's favorite recipes. Loads `Favourites` component
+- `LoginPage.js` - Shows login form. Loads `Login` component
+- `RegisterPage.js` - Shows register form. Loads `Register` component
+- `LogoutPage.js` - Logouts the user.
+- `NotFoundPage.js` - Shows that a page doesn't exist when an invalid route in `Router.js` has been activated
+- `ProfilePage.js` - Shows user's data. Loads `Profile` component
+- `AddRecipePage.js` - Shows form for publishing a recipe. Loads `AddRecipe` component
+- `EditRecipePage.js` - Shows form for editing a published recipe. Loads `EditRecipe` component
+- `ViewRecipePage.js` - Shows details for recipe. Has functionality for rating. Loads `ViewRecipe` component
 
-### Components
+#### Components
 
-- `Home`
-- `HomePage.js`
-- `HomePage.js`
-- `HomePage.js`
-- `HomePage.js`
-- `HomePage.js`
+- `Home.js` - Fetches all data from the `API` and shows all recipes with `RecipesWrapper`
+- `AddRecipe.js` - Shows all inputs required for publishing a recipe. Validates the input. Sends a post request with the data on submit.
+- `Home.js`
+- `Home.js`
+- `Home.js`
+- `Home.js`
+- `Home.js`
+- `Home.js`
+- `Home.js`
+- `Home.js`
+- `Home.js`
 
 ## Learn More
 
