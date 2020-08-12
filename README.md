@@ -125,7 +125,19 @@ You can view a deployed version of the project here [React Recipes](http://react
 
 #### Higher Order Components
 
-- `withFetching` - Mutates a component by fetching and providing the data to it with the props object
+- `withFetching.js` - Mutates a component by fetching and providing the data to it with the props object
+
+## Routes
+
+- `/`
+    - `HomePage` component
+- `/categories` 
+    - `CategoriesPage` component
+  `/categories/:title` -> `CategoryPage` component
+  `/recipe/view/:id` -> `ViewRecipePage` component
+  `/login` -> `LoginPage` component
+  `/register` -> `RegisterPage` component
+  `/` -> `HomePage` component
 
 ## Learn More
 
