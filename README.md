@@ -13,6 +13,13 @@ Simple recipes sharing website written in react. You can view all recipes or by 
 - React test renderer
 - [Recipe REST API](https://github.com/martinnikolov93/recipes-nodejs-api)
 
+## Configuration
+
+- For development set `process.env.NODE_ENV` to **development**
+- For production set `process.env.NODE_ENV` to **production**
+
+Open `utils/constants.js` and change your urls
+
 ## Installation and running
 
 In the project directory, you can run:
@@ -126,6 +133,11 @@ You can view a deployed version of the project here [React Recipes](http://react
 #### Higher Order Components
 
 - `withFetching.js` - Mutates a component by fetching and providing the data to it with the props object
+
+#### Utils
+
+- `constants.js` - Returns the config of the app
+- `helpers.js` - Returns helper functions which can be used anywhere
 
 ## Navigation
 
