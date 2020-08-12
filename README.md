@@ -100,13 +100,13 @@ You can view a deployed version of the project here [React Recipes](http://react
 
 #### Components
 
-- `Home.js` - Fetches all recipe data from the `API` and shows all recipes with `RecipesWrapper` component.
+- `Home.js` - Fetches all recipe data from the `API` and returns all recipes with `RecipesWrapper` component.
 - `AddRecipe.js` - Returns all inputs required for publishing a recipe. Validates the input. Sends a post request with the data on submit.
 - `AddReview.js` - Holds rating functionality and inputs for rating a recipe and loads all reviews with `ReviewsWrapper`.
-- `Categories.js` - Fetches all category data from the `API` and shows all categories with `CategoriesWrapper`.
+- `Categories.js` - Fetches all category data from the `API` and returns all categories with `CategoriesWrapper`.
 - `CategoriesDropdown.js` - Holds functionality for all categories in the navigation. Will show all categories on mouse entering and will hide them on mouse leaving.
-- `CategoriesWrapper.js` - Wraps all categories and shows `Category` component for each category.
-- `Category.js` - Fetches all recipe data for the category and shows recipes with `RecipesWrapper` component.
+- `CategoriesWrapper.js` - Wraps all categories and returns `Category` component for each category.
+- `Category.js` - Fetches all recipe data for the category and returns the recipes with `RecipesWrapper` component.
 - `EditRecipe.js` - Loads all recipe data and fills inputs with that data for proper editing of a recipe. Validates the input. Sends a put request with the edited data on submit.
 - `EditRecipeButton.js` - Returns an icon for editing and will redirect on clicking.
 - `FavouriteIcon.js` - Holds favorite/unfavorite functionality. Returns a heart icon which can be clicked. Sends post request when adding to favorites. Sends delete request when removing from favorites.
