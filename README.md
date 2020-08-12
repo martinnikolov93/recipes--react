@@ -15,10 +15,10 @@ Simple recipes sharing website written in react. You can view all recipes or by 
 
 ## Configuration
 
-- For development set `process.env.NODE_ENV` to **development**
-- For production set `process.env.NODE_ENV` to **production**
+- For development set `process.env.NODE_ENV` to `development`
+- For production set `process.env.NODE_ENV` to `production`
 
-Open `utils/constants.js` and change your urls
+Open `utils/constants.js` and change your API urls
 
 ## Installation and running
 
