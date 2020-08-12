@@ -90,7 +90,7 @@ You can view a deployed version of the project here [React Recipes](http://react
 - `Router.js` - Determines which route has been activated and provides the corresponding component. Also protects routes depending on user authentication.
 - `Context.js` - Holds all contexts. For now only `UserContext` is needed.
 
-#### Page components
+#### Pages
 
 - `HomePage.js` - Landing page. Shows all recipes. Loads `Home` component.
 - `CategoriesPage.js` - Shows all categories. Loads `Categories` component.
@@ -130,7 +130,7 @@ You can view a deployed version of the project here [React Recipes](http://react
 - `Register.js` - Returns all inputs required for registering the user. Validates the input. Sends post request to the `API` with the data. On valid response logs in the user with `UserContext` functionality
 - `ViewRecipe.js` - Returns all details for a recipe and `FavouriteIcon`, `EditRecipeButton`, `AddReview` components
 
-#### Higher Order Components
+#### HOC (Higher Order Components)
 
 - `withFetching.js` - Mutates a component by fetching and providing the data to it with the props object
 
