@@ -4,9 +4,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Simple recipes sharing website written in react. You can publish your own recipes, add the ones you like in your favourites, rate and comment regardless you liked a recipe or not.
 
+## Libraries and apis used to make this project
+
+- React library
+- React icons
+- React router DOM
+- React scripts
+- React test renderer
+- [REST API](https://github.com/martinnikolov93/recipes-nodejs-api)
+
 ## Installation and running
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installs all dependencies (listed in the libraries) required to run the project.
 
 ### `npm start`
 
@@ -34,6 +47,38 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Live demo
 
 You can view a deployed version of the project here [React Recipes](http://react-recipes-softuni.herokuapp.com/).
+
+## Design
+
+- Public
+    **Everybody can:**
+    - View all recipes
+    - View recipes by category
+    - View all categories
+    - Read all reviews
+
+- Guest
+    **Guests can:**
+    - Create an account
+    - Login with an existing account
+
+- Authenticated
+    **Users can:**
+    - Publish a recipe
+    - Edit their published recipes
+    - View their profile and see their published recipes
+    - Add or remove a recipe to/from favourites
+    - View favourite recipes
+    - Rate a recipe by choosing stars from 1-5 and leaving a comment
+    - Logout from their account
+
+
+## File explanation
+
+`index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**
+`App.js` - Holds the whole application. Wraps all routes with `AuthController`
+`AuthController` - Provides login and logout functionalities. Checks if the user is logged in and provides the data to the `Router`.
+`Router` - Determines which route has been activated
 
 ## Learn More
 
