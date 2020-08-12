@@ -75,7 +75,25 @@ You can view a deployed version of the project here [React Recipes](http://react
 - `index.js` - Our main entry point. Loads the `App` component and renders the application into **div** with _id_ **root**
 - `App.js` - Holds the whole application. Wraps all routes with `AuthController`
 - `AuthController` - Provides login and logout functionalities. Checks if the user is logged in and provides the data to the `Router`.
-- `Router` - Determines which route has been activated
+- `Router` - Determines which route has been activated and provides the corresponding component. Also protects routes depending on user authentication.
+
+### Pages
+
+- `HomePage.js` - Landing page. Loads `Home` component
+- `CategoriesPage.js` - Shows all categories. Loads `Categories` component
+- `CategoryPage.js` - Shows all recipes for certain category. Loads `Category` component
+- `HomePage.js`
+- `HomePage.js`
+- `HomePage.js`
+
+### Components
+
+- `Home`
+- `HomePage.js`
+- `HomePage.js`
+- `HomePage.js`
+- `HomePage.js`
+- `HomePage.js`
 
 ## Learn More
 
