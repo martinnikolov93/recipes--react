@@ -4,8 +4,9 @@
 }
 
 .description {
-  width: 500px;
+  width: 800px;
   margin: auto;
+  height: 1000px;
 }
 
 .recipe-hr {

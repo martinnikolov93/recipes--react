@@ -27,7 +27,7 @@ const ViewRecipe = (props) => {
                 </div>
                 <hr className={styles['recipe-hr']} />
                 <h3>{props.data.title}</h3>
-                <div className={styles.description}>{props.data.description + "..."}</div>
+                <textarea disabled className={styles.description}>{props.data.description}</textarea>
                 <br /><br />
                 <h2>Rate</h2>
                 <hr className={styles['recipe-hr']} />
