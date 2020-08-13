@@ -103,3 +103,8 @@ hr {
   color: red;
   font-size: 18px;
 }
+
+a {
+  text-decoration: none;
+  color: #e99e15;
+}
