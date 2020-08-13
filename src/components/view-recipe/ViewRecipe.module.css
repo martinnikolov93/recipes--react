@@ -6,7 +6,7 @@
 .description {
   width: 800px;
   margin: auto;
-  height: 1000px;
+  min-height: 500px;
 }
 
 .recipe-hr {
