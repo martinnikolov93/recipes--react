@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewRecipe component Should render ViewRecipe component when is NOT recipe creator 1`] = `
+<article>
+  <img
+    alt="Test title"
+    className="image"
+    src="http://google.com"
+  />
+  <div>
+    <FavouriteIcon />
+  </div>
+  <hr
+    className="recipe-hr"
+  />
+  <h3>
+    Test title
+  </h3>
+  <textarea
+    className="description"
+    disabled={true}
+  >
+    Test description
+  </textarea>
+  <br />
+  <br />
+  <h2>
+    Rate
+  </h2>
+  <hr
+    className="recipe-hr"
+  />
+  <div>
+    <AddReview />
+  </div>
+</article>
+`;
+
+exports[`ViewRecipe component Should render ViewRecipe component when is recipe creator 1`] = `
+<article>
+  <img
+    alt="Test title"
+    className="image"
+    src="http://google.com"
+  />
+  <div>
+    <FavouriteIcon />
+    <EditRecipeButton />
+  </div>
+  <hr
+    className="recipe-hr"
+  />
+  <h3>
+    Test title
+  </h3>
+  <textarea
+    className="description"
+    disabled={true}
+  >
+    Test description
+  </textarea>
+  <br />
+  <br />
+  <h2>
+    Rate
+  </h2>
+  <hr
+    className="recipe-hr"
+  />
+  <div>
+    <AddReview />
+  </div>
+</article>
+`;
